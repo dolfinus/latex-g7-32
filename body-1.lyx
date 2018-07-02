@@ -1,0 +1,2509 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Раздел
+Обзор методов обеспечения конфиденциальности
+\end_layout
+
+\begin_layout Подраздел
+Основные методы
+\end_layout
+
+\begin_layout Standard
+В качестве основных методов защиты конфиденциальности информации, используемых
+ при обучении на кафедре Информационная безопасность НИУ МИЭТ, рассматриваются
+ следующие методы:
+\end_layout
+
+\begin_layout Enumerate
+Идентификация и аутентификация;
+\end_layout
+
+\begin_layout Enumerate
+Авторизация и разграничение доступа;
+\end_layout
+
+\begin_layout Enumerate
+Использование алгоритмов шифрования данных и генерации ключей шифрования;
+\end_layout
+
+\begin_layout Enumerate
+Использование механизмов цифровой подписи (ЦП).
+\end_layout
+
+\begin_layout Standard
+Рассмотрим данные методы более подробно.
+\end_layout
+
+\begin_layout Подраздел
+Идентификация и аутентификация
+\end_layout
+
+\begin_layout Standard
+Идентификация и аутентификация - одни из широко используемых методов защиты
+ конфиденциальности информации.
+\end_layout
+
+\begin_layout Standard
+Идентификация представляет собой процесс сопоставления работающего с системой
+ пользователя с каким-либо идентификатором.
+ Данный идентификатор обычно представляет собой имя пользователя (так называемый
+ 
+\emph on
+логин
+\emph default
+) или его адрес электронной почты, но также может быть и неким числовым
+ кодом, который сохраняется системой и может быть использован для определенных
+ операций 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "but_security"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Аутентификация (
+\emph on
+или установление подлинности
+\emph default
+) - это алгоритм, который применяется в том случае, если в процессе обмена
+ информацией стороны не доверяют друг другу, позволяющий создать с помощью
+ некоторых проверок определенный уровень доверия.
+ Использование различных способов аутентификации позволяет определять источник
+ угрозы конфиденциальности 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "but_methods"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Основными видами аутентификации являются:
+\end_layout
+
+\begin_layout Itemize
+Аутентификация сеанса связи;
+\end_layout
+
+\begin_layout Itemize
+Аутентификация стороны взаимодействия;
+\end_layout
+
+\begin_layout Itemize
+Аутентификация передаваемой информации;
+\end_layout
+
+\begin_layout Standard
+Аутентификацией сеанса связи называют проверку таких параметров, как целостность
+ соединения (отсутствие вмешательства третьей стороны), невозможность повторной
+ передачи информации (введение так называемых 
+\emph on
+меток времени
+\emph default
+ или генерация случайных чисел при создании соединения) и своевременность
+ передачи (отправка данных только после их запроса).
+\end_layout
+
+\begin_layout Standard
+Аутентификация стороны взаимодействия позволяет осуществить проверку идентификат
+ора взаимодействующей стороны со списком доверенных.
+ При этом обращение к данному списку может осуществляться и через доверенного
+ посредника - в таком случае говорят об использовании различных распределенных
+ алгоритмов и протоколов идентификации.
+\end_layout
+
+\begin_layout Standard
+При аутентификации информации осуществляется проверка подлинности передаваемой
+ информации на основе ее источника, времени создания и отправки, а также
+ содержания.
+ Зачастую используются специальные алгоритмы проверки подлинности, сверяющие
+ 
+\begin_inset Quotes cld
+\end_inset
+
+слепок
+\begin_inset Quotes crd
+\end_inset
+
+ переданных данных с тем, что сообщает доверенный сервер при передаче.
+ После сравнения определяется, является ли данная информация доверенной
+ или же необходимо прервать соединение.
+\end_layout
+
+\begin_layout Подраздел
+Разграничение доступа
+\end_layout
+
+\begin_layout Standard
+Кроме использования различны методов идентификации и аутентификации пользователе
+й, система должна также уметь сопоставлять конечных пользователей с тем,
+ какие возможности им могут быть предоставлены 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nechayev"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Таким образом, говорят о введении 
+\emph on
+системы разграничения доступа
+\emph default
+, которая позволяет разделять пользователей по определенным признакам, на
+ основании которых осуществляется проверка доступности для них тех или иных
+ действий.
+\end_layout
+
+\begin_layout Standard
+Выделяют следующие виды таких систем:
+\end_layout
+
+\begin_layout Enumerate
+Избирательный доступ;
+\end_layout
+
+\begin_layout Enumerate
+Полномочный доступ.
+\end_layout
+
+\begin_layout Standard
+Первый вид характеризуется прямым определением разрешенных в системе операций
+ путем создания списков сопоставления: 
+\emph on
+пользователь - выполняемая операция - объект
+\emph default
+.
+ Такая система не только наиболее просто реализуется, но и позволяет обеспечиват
+ь высокую точность при управлении доступом.
+\end_layout
+
+\begin_layout Standard
+К недостаткам такой системы можно отнести:
+\end_layout
+
+\begin_layout Enumerate
+Длительная проверка возможности осуществления операции при большом числе
+ объектов и пользователей;
+\end_layout
+
+\begin_layout Enumerate
+Большой физический размер списка сопоставления;
+\end_layout
+
+\begin_layout Enumerate
+Большое число операций при добавлении нового пользователя.
+\end_layout
+
+\begin_layout Standard
+Второй вид характеризуется применением различных абстракций, таких как 
+\emph on
+уровни конфиденциальности
+\emph default
+, введение 
+\emph on
+групп пользователей
+\emph default
+, а также 
+\emph on
+политик безопасности
+\emph default
+.
+ Это позволяет создавать более удобные для применения системы, которые решают
+ недостатки дискреционных систем, но и имеют ряд собственных недостатков:
+\end_layout
+
+\begin_layout Enumerate
+Сложность правил, используемых для вычисления разрешений для конкретных
+ пользователей и объектов;
+\end_layout
+
+\begin_layout Enumerate
+Низкая точность некоторых систем (до отдельных групп объектов, но не конкретных
+ объектов);
+\end_layout
+
+\begin_layout Enumerate
+Сложность реализации некоторых теоретически устойчивых моделей в реальных
+ ОС и приложениях.
+\end_layout
+
+\begin_layout Подраздел
+Шифрование данных
+\end_layout
+
+\begin_layout Standard
+Одной из основных задач, решаемых при осуществлении защиты конфиденциальности
+ информации, является использование криптографических техник для защиты
+ передаваемых сведений от получения злоумышленником в понятном для восприятия
+ виде.
+ В качестве их реализации применяются различные алгоритмы криптографического
+ преобразования - так называемые 
+\emph on
+шифры
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Шифры
+\emph default
+ - это целое семейство обратимых преобразований (алгоритмов), которое определяет
+ся такими параметрами как 
+\emph on
+ключ шифрования
+\emph default
+, а также способом применения этого алгоритма - 
+\emph on
+режима шифрования
+\emph default
+.
+ С их помощью открытый текст преобразуется в 
+\emph on
+шифртекст
+\emph default
+, причем обратно получить из него открытый текст можно только зная, какой
+ был использован алгоритм, с каким ключом и в каком режиме 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "but_methods"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Алгоритмы шифрования могут основываться на различных принципах - это могут
+ быть перестановки символов в тексте, замены символов на другие, различные
+ математические операции над числовыми данными, в том числе и с применением
+ модулярной арифметики или вычислений на эллиптических кривых.
+\end_layout
+
+\begin_layout Standard
+Различные виды алгоритмов используются в разных ситуациях.
+ По способу шифрования выделяют:
+\end_layout
+
+\begin_layout Enumerate
+Поточные шифры;
+\end_layout
+
+\begin_layout Enumerate
+Блочные шифры.
+\end_layout
+
+\begin_layout Standard
+Поточные шифры осуществляют преобразования над каждым передаваемым символом
+ текста или битом информации в отдельности, в то время как блочные алгоритмы
+ преобразуют сразу блок данных определенного размера.
+\end_layout
+
+\begin_layout Standard
+Также выделяют:
+\end_layout
+
+\begin_layout Enumerate
+Симметричные алгоритмы;
+\end_layout
+
+\begin_layout Enumerate
+Асимметричные алгоритмы.
+\end_layout
+
+\begin_layout Standard
+Для первого вида алгоритмов ключ шифрования совпадает с ключом расшифрования.
+ К данному виду относятся большинство существующих алгоритмов шифрования.
+\end_layout
+
+\begin_layout Standard
+Для второго вида генерируются два различных ключа - открытый и закрытый,
+ первый из которых используется для генерации шифртекста.
+ а второй - для расшифрования.
+ Зная открытый ключ невозможно получить закрытый, и наоборот, а значит с
+ помощью данного вида алгоритмов можно обеспечивать работу более сложных
+ схем защиты конфиденциальности.
+ К ним, например, относятся различные схемы цифровой подписи данных.
+\end_layout
+
+\begin_layout Подраздел
+Цифровая подпись
+\end_layout
+
+\begin_layout Standard
+Цифровая подпись (ЦП
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ЦП"
+description "Цифровая подпись"
+literal "false"
+
+\end_inset
+
+) передаваемого сообщения - это способ проверки целостности сообщения или
+ проведения аутентификации, использующий специальные алгоритмы для генерации
+ и проверки подписи 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "but_methods"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В общем случае под цифровой подписью подразумевают некое число или набор
+ чисел, полученных при определенном наборе криптографических преобразований
+ над передаваемым сообщением.
+ Это означает, что для проверки целостности информации необходимо знать
+ следующие параметры:
+\end_layout
+
+\begin_layout Enumerate
+Содержание сообщения;
+\end_layout
+
+\begin_layout Enumerate
+Используемый алгоритм генерации и проверки ЦП;
+\end_layout
+
+\begin_layout Enumerate
+Ключ, используемый для алгоритма проверки целостности.
+\end_layout
+
+\begin_layout Standard
+Для того, чтобы не доверяющие друг другу стороны могли осуществить обмен
+ информацией с защитой ее целостности, применяют алгоритмы асимметричного
+ криптопреобразования, которые позволяют генерировать пару ключей - закрытый
+ и открытый.
+\end_layout
+
+\begin_layout Standard
+Отправитель информации генерирует цифровую подпись сообщения с помощью закрытого
+ ключа, и передает результат получателю.
+ Получатель с помощью известного ему открытого ключа производит проверку
+ переданного сообщения на целостность.
+\end_layout
+
+\begin_layout Standard
+Алгоритмы цифровой подписи могут строиться на различных принципах:
+\end_layout
+
+\begin_layout Itemize
+Передача зашифрованного содержимого;
+\end_layout
+
+\begin_layout Itemize
+Передача зашифрованного хэша содержимого вместе с исходным сообщением.
+\end_layout
+
+\begin_layout Standard
+В первом случае получатель выполняет расшифрование сообщения с помощью открытого
+ ключа.
+ Во втором случае получатель осуществляет преобразование, аналогичное тому,
+ что было выполнено отправителем, и сравнивает его результат с расшифрованным
+ хэшем сообщения 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "maslennikov"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Хэш генерируется с помощью отдельного семейства криптографических алгоритмов,
+ обеспечивающих 
+\begin_inset Quotes cld
+\end_inset
+
+свертку
+\begin_inset Quotes crd
+\end_inset
+
+ исходного сообщения в числовую последовательность определенной длины, которая
+ имеет следующие свойства:
+\end_layout
+
+\begin_layout Enumerate
+Невозможность обратного преобразования (получения исходного сообщения из
+ хэша);
+\end_layout
+
+\begin_layout Enumerate
+Значительное изменение результата даже при изменении одного символа в исходном
+ сообщении (
+\begin_inset Quotes cld
+\end_inset
+
+лавинный
+\begin_inset Quotes crd
+\end_inset
+
+ эффект);
+\end_layout
+
+\begin_layout Enumerate
+Низкая вероятность коллизии.
+\end_layout
+
+\begin_layout Standard
+Данный алгоритмы широко используются при генерации цифровой подписи, так
+ как позволяют как уменьшить длину самой подписи по сравнению с самим сообщением
+, так дают возможность разделить процессы передачи сообщения и проверки
+ его целостности на два отдельных процесса.
+\end_layout
+
+\begin_layout Standard
+Что касается способов проверки цифровой подписи, оба случая требуют известности
+ открытого ключа принимающей стороне, и в целях контроля доступности данной
+ информации для сторон может использоваться доверенная третья сторона -
+ центр сертификации.
+ Он позволяет публиковать открытые ключи и закреплять их за отправителями,
+ что также позволяет решать проблему с доверием между сторонами.
+\end_layout
+
+\begin_layout Подраздел
+Основные учебные алгоритмы
+\end_layout
+
+\begin_layout Standard
+Алгоритмы шифрования и цифровой подписи являются одной из первых тем, рассматрив
+аемых в рамках дисциплины 
+\begin_inset Quotes cld
+\end_inset
+
+Криптографические методы защиты информации
+\begin_inset Quotes crd
+\end_inset
+
+, преподаваемой кафедре Информационная безопасность НИУ МИЭТ.
+ При этом их изучение происходит в историческом порядке, чтобы подробнее
+ рассмотреть процесс развития методов криптографической защиты.
+ Также рассматриваются методы частотного анализа текста, позволяющие оценить
+ криптографическую стоикость рассматриваемых способов шифрования.
+\end_layout
+
+\begin_layout Standard
+Основные алгоритмы, принципы работы которых рассматриваются в рамках курса,
+ рассмотрены ниже.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Атбаш
+\end_layout
+
+\begin_layout Standard
+Данный алгоритм является одним из самых первых алгоритмов шифрования, который
+ стал широко использоваться человечеством.
+ Он представляет собой достаточно простой потоковый моноалфавитный шифр
+ замены 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alferov"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Алгоритм его работы не содержит каких-либо сложных элементов, и может быть
+ выполнен вручную.
+ Его блок схема представлена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Атбаш"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/atbash.svg
+	height 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Атбаш"
+
+\end_inset
+
+Блок-схема алгоритма Атбаш
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В процессе работы алгоритма каждый символ исходного текста заменяется на
+ символ, расположенный симметрично ему с конца алфавита.
+ Т.е.
+ первый символ заменяется на последний, второй - на предпоследний, и т.д.
+ Именно благодаря этому алгоритму шифр и получил свое название - это поочередно
+ записанные первые и последние символы древнееврейского языка.
+\end_layout
+
+\begin_layout Standard
+Таким образом производится элементарный процесс шифрования текста, где ключом
+ является сам алгоритм.
+ Процесс расшифрования не отличается от процесса шифрования, поэтому повторное
+ применение данного шифра над шифртекстом не повышает его криптостойкости.
+\end_layout
+
+\begin_layout Standard
+Данный алгоритм легко взламывается даже вручную, и не является криптограически
+ стойким.
+ Кроме того, он очень быстро взламывается при использовании методов частотного
+ анализа шифртекста.
+ Благодаря этому, шифр был распространен только из-за низкого уровня грамотности
+ населения, и быстро перестал использоваться.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Цезаря
+\end_layout
+
+\begin_layout Standard
+Данный шифр является одним из самых известных примеров шифров замены
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alferov"
+literal "false"
+
+\end_inset
+
+.
+ Его создание приписывают римскому императору и полководцу Юлию Цезарю.
+ Несмотря на то, что Цезарь действительно использовал его для передачи важных
+ секретных сведений, подобные шифры использовались еще при императоре Августе,
+ но с другим ключом.
+ Однако название закрепилось именно за его преемником.
+\end_layout
+
+\begin_layout Standard
+Алгоритм, используемый в данном шифре, представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Цезарь"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/caesar.svg
+	height 50theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Цезарь"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Цезаря
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Он близок к тому, что использовался в шифре Атбаш - это также потоковый
+ моноалфавитный шифр замены.
+ Однако в шифре Цезаря замена происходит не на символ, симметричный относительно
+ конца шифра, а на символ, позиция которого отстоит от исходного на некоторое
+ фиксированное число.
+ Это число и считается ключом, в классическом шифре Цезаря его значение
+ равно 3.
+ Сдвиг является циклическим, и символы с конца алфавита заменяются на соответств
+ующие символы с его начала.
+\end_layout
+
+\begin_layout Standard
+Данный шифр также легко взламывается даже вручную, и исторически использовался
+ достаточно недолгое время 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yachenko"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Квадрат Полибия
+\end_layout
+
+\begin_layout Standard
+Шифр Полибия (или 
+\begin_inset Quotes cld
+\end_inset
+
+квадрат Полибия
+\begin_inset Quotes crd
+\end_inset
+
+) является достаточно известным шифром, изобретенным во времена Древней
+ Греции 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yachenko"
+literal "false"
+
+\end_inset
+
+.
+ Данный шифр, как и описанные выше, является потоковым шифром замены, но
+ имеет более сложный алгоритм, основанный на таблице замены символов.
+ По аналогии данной таблицы с шахматной доской, этот шифр также называют
+ 
+\emph on
+шахматным шифром Полибия
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Шифр основан на использовании таблицы замены, пример которой приведен на
+ рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Таблица Полибия"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Таблица Полибия"
+
+\end_inset
+
+Таблица замены Полибия
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+А
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Б
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+В
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Г
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Д
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Е/Ё
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ж
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+З
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+И/Й
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+К
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Л
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+М
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Н
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+О
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+П
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Р
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+С
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Т
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+У
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ф
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Х
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ц
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ч
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ш
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Щ
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ъ/Ь
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ы
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Э
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ю
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Я
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Блок схема алгоритма представлена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Полибий"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/polibiy.svg
+	height 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Полибий"
+
+\end_inset
+
+Блок-схема алгоритма шифра Квадрат Полибия
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Как можно видеть, символ шифртекста зависит от координаты символа исходного
+ текста в таблице замены, а значит ключом является сама таблица замены.
+ Кроме стандартной таблицы с ее последовательным заполнением символов алфавита,
+ возможны иные принципы заполнения - например, путем ввода определенного
+ слова в начало таблицы, а затем последовательного заполнения таблицы оставшимис
+я символами в шахматном порядке, можно увеличивать число возможных вариантов
+ перестановки, одновременно используя достаточно простой для запоминания
+ ключ.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Тритемия
+\end_layout
+
+\begin_layout Standard
+Благодаря широкому развитию книгопечатания, XVI век был ознаменован широким
+ распространением различных учений о методах шифрования.
+ Однам из таких новых методов является шифр Тритемия.
+ Данный шифр, называемый также Таблицей Тритемия в честь автора трактата
+ 
+\begin_inset Quotes cld
+\end_inset
+
+Полиграфия
+\begin_inset Quotes crd
+\end_inset
+
+, в которым он был впервые описан, представляет собой качественно новую
+ ступень развития шифров замены по сравнению с известными ранее шифрами
+ Атбаш и Цезаря.
+\end_layout
+
+\begin_layout Standard
+Как и указанные шифры, он представляет собой поточный алфавитный шифр замены,
+ однако для замены используется не один алфавит, а несколько.
+ Таким образом, шифр является полиалфавитным периодическим шифром.
+\end_layout
+
+\begin_layout Standard
+Блок-схема шифра представлена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Тритемий"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/tritemius.svg
+	height 50theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Тритемий"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Таблица Тритемия
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Как можно видеть, для каждого отдельного символа используется собственная
+ таблица замены символов, что значительно увеличивает количество возможных
+ вариантов замены символов друг на друга, а значит и увеличивает время,
+ требуемое для дешифрования текста.
+\end_layout
+
+\begin_layout Standard
+Также данный шифр не подвержен обычным методам вскрытия на основе частотного
+ анализа текста, которые могли использоваться на более старых шифрах.
+ Это позволило достаточно долгое время считать его криптоанализ крайне трудоемки
+м, поскольку методы взлома моноалфавитных шифров в данном случае не могли
+ быть применены.
+\end_layout
+
+\begin_layout Standard
+Однако, со временем алгоритм шифрования стал широко известным, и его взлом
+ перестал составлять собой неразрешимую задачу.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Белазо
+\end_layout
+
+\begin_layout Standard
+Шифр Тритемия хоть и являлся достаточно криптостойким для своего времени,
+ но все же в нем использовались ключи шифрования - таким образом, само по
+ себе знание алгоритмы шифрования позволяло получить исходный текст сообщения.
+\end_layout
+
+\begin_layout Standard
+В качестве решения данной проблемы таблица была модифицирована.
+ Был предложен способ использования парольной фразы, буквы из которой использова
+лись в качестве нумерации конкретного алфавита, который использовался для
+ шифрования каждой из букв.
+\end_layout
+
+\begin_layout Standard
+Данный шифр был назван шифром Белазо.
+ Его схема представлена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Белазо"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/bellaso.svg
+	height 50theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Белазо"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Белазо
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Благодаря использованию парольной фразы увеличилась криптостойкость шифра
+ - теперь для дешифровки текста было недостаточно знания самой таблицы замены.
+ Однако, так как пароль являлся периодическим, определенные методы - например,
+ так называемый тест Касински - позволяли выяснить длину периодической составляю
+щей шифра.
+ После этого с помощью перебора большого, но значительно сокращенного по
+ сравнению с исходным числа комбинаций, можно было подобрать пароль.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Виженера
+\end_layout
+
+\begin_layout Standard
+В качестве решения описанной ранее проблемы было предложено использовать
+ достаточно большой ключ шифрования.
+ Однако, это также ставит под удар самую идею использования ключа - возможность
+ быстро его передать и запомнить.
+ Ключи длиной более чем длина сообщения требовали хранения, а значит были
+ подвержены утере или краже.
+\end_layout
+
+\begin_layout Standard
+Таким образом, требовалось одновременно решить проблему, связанную с длиной
+ ключа, но при этом не понизить уровень криптостойкости.
+ В шифре Виженера данная проблема была решена изящным способом - ключ основан
+ на самом исходном тексте.
+ 
+\end_layout
+
+\begin_layout Standard
+Данный шифр является первым представителем класса шифров с гаммированием
+ - использованием случайной или псевдослучайной последовательности символов
+ при выполнении шифрования.
+ Другое название данного шифра - шифр с самоключом.
+ 
+\end_layout
+
+\begin_layout Standard
+Блок-схема алгоритма приведена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Виженер"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/viginer.svg
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Виженер"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Виженера (1 вариант)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Как можно видеть, приведенный алгоритм напоминает шифр Белазо, в качестве
+ ключа которого используется само исходное сообщение вместе с добавленной
+ в начало текстовой последовательностью, называемой также паролем.
+ Длина пароля составляла всего 1 символ, однако это не оказывает влияния
+ на криптостойкость алгоритма.
+\end_layout
+
+\begin_layout Standard
+Также известен и видоизмененный алгоритм, в котором гаммирующая последовательнос
+ть берется не из символов открытого текста, а из символов шифртекста.
+ Его блок схема приведена на рисунке блок-схема алгоритма приведена на рисунке
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Виженер2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/viginer2.svg
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Виженер2"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Виженера (2 вариант)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Более того, благодаря тому что шифр использует в качестве ключа шифрования
+ последовательность длиной больше чем длина открытого текста, данный шифр
+ не поддается методам частотного анализа текста, а также взлому с помощью
+ перебора, так как таким способом потребовалось бы подобрать сам исходный
+ текст достаточно большой длины.
+ Это позволило шифру на более чем 300 лет получить статус невзламываемого.
+\end_layout
+
+\begin_layout Пункт
+Описание шифра Энигма
+\end_layout
+
+\begin_layout Standard
+Данный алгоритм является дальшейшим развитием шифров замены, и разработан
+ для использования в одноименных механических аппаратах.
+ Шифр Энигма широко использовался во времена Второй Мировой Войны, обеспечивая
+ надежное шифрование секретных данных, передаваемых между полевыми пунктами
+ и командованием Германии.
+\end_layout
+
+\begin_layout Standard
+Механическое устройство представляло собой набор из поворотных колец, размещенны
+х на одной оси, на каждом из которых находится по 26 электрических контактов
+ (по числу букв в алфавите).
+ Ось оканчивается рефлектором - кольцом со статическим положением.
+ При шифровании сигнал, соответствующий определенной букве, последовательно
+ проходит через соединенные между собой контакты колец, рефлектор, а затем
+ обратно через кольца.
+\end_layout
+
+\begin_layout Standard
+Блок-схема данного алгоритма шифрования приведена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Энигма"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/enigma.svg
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Энигма"
+
+\end_inset
+
+Блок-схемы алгоритмов шифрования и расшифрования шифром Энигма
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В на каждом элементе цепи происходит шифрование методом замены, определяемое
+ элементной базой колец и рефлектора.
+ Также на каждом последующем символе происходит поворот одного из колец,
+ причем поворот на некоторые определенные буквы вызывает поворот не только
+ текущего кольца, но и последующих.
+ Это позволяет увеличить число замен и усложнить преобразование.
+\end_layout
+
+\begin_layout Standard
+Наличие фиксированного на оси кольца под названием рефлектор, а также электричес
+кой цепи прохода сигналов через кольца в обратном направлении дают возможность
+ использовать один и тот же алгоритм как для шифрования, так и для расшифрования
+ текста без его модификаций, что значительно упрощает работу с механизмом
+ – достаточно ввести принятое сообщение на клавиатуре, чтобы получить на
+ выходе расшифрованное сообщение.
+ Со временем трех колец шифрования стало недостаточно для обеспечения криптостой
+кости, и поэтому были введены дополнительные кольца.
+ В некоторых конструкциях их количество на одной оси достигало 5.
+\end_layout
+
+\begin_layout Standard
+Также, для усложнения преобразования, в более поздних моделях появилась
+ коммутационная панель.
+ Путем соединения контактных площадок проводами, они позволяла дополнительно
+ менять определенные символы друг с другом, как до начала преобразования,
+ так и после.
+ Это позволило еще больше усложнить взлом алгоритма без значительного изменения
+ конструкции.
+\end_layout
+
+\begin_layout Standard
+Алгоритм обладал значительной стойкостью, и длительное время считался невзламыва
+емым, поэтому в целях дешифровки текстов были созданы специальные подразделения,
+ использующие электронные компоненты для быстрого перебора всех возможных
+ ключей.
+ Процесс занимал значительное время, однако различные утечки кодовых таблиц,
+ успешные изъятия работающих устройств с захваченных пунктов связи, а также
+ ошибки, допускаемые оператором в процессе шифрования, позволили 
+\end_layout
+
+\begin_layout Пункт
+Описание алгоритма RSA
+\end_layout
+
+\begin_layout Standard
+Дальнейшее развитие различных алгоритмов шифрования привело привело к пониманию,
+ что усложнение самих алгоритмов шифрования не может решить другой причины
+ нарушения конфиденциальности - утечки ключей шифрования.
+ Требовалось принципиально новое средство для разделения ключей между сторонами.
+\end_layout
+
+\begin_layout Standard
+В качестве одного из новых методов обмена ключами между сторонами была предложен
+а схема Диффи-Хеллмана 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "diffi_hellman"
+literal "false"
+
+\end_inset
+
+, которая позволяла осуществлять генерацию общего ключа для шифрования сообщения
+, не осуществляя его передачу по каналу связи.
+ Дальнейшим развитием подобной схемы является RSA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zubov"
+literal "false"
+
+\end_inset
+
+.
+ Данная схема использует в качестве основы модулярную арифметику, а именно
+ возведение степеней над конечным полем.
+\end_layout
+
+\begin_layout Standard
+Данный представляет собой несколько независимых друг от друга частей:
+\end_layout
+
+\begin_layout Itemize
+Генерация пары из открытого и секретного ключа;
+\end_layout
+
+\begin_layout Itemize
+Шифрование данных.
+\end_layout
+
+\begin_layout Standard
+Блок-схема алгоритма генерации ключа приведена на рисунке
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RSA, ключи"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/rsa_keys.svg
+	height 60theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RSA, ключи"
+
+\end_inset
+
+Блок-схема алгоритма генерации ключей RSA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Данный алгоритм позволяет создать пару ключей, каждый из которых будет использов
+аться соотвествующей стороной.
+ Для шифрования используется опубликовыннй открытый ключ принимающей стороны,
+ а для расшифрования - собственный секретный ключ, не передаваемый другим
+ сторонам.
+\end_layout
+
+\begin_layout Standard
+Блок-схема алгоритма шифрования приведена на рисунке
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:RSA, шифрование"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/rsa.svg
+	height 30theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:RSA, шифрование"
+
+\end_inset
+
+Блок-схема алгоритма шифрования RSA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Открытый текст переводится в числовую форму, а затем преобразуется с помощью
+ достаточно простого алгоритма в шифртекст.
+ Используя только открытый ключ данный шифртекст невозможно расшифровать.
+ Эта особенности алгоритма позволяет создавать гарантированно криптостойкие
+ системы.
+\end_layout
+
+\begin_layout Standard
+Возможно и иное использование данных алгоритмов - в качестве алгоритма генерации
+ и проверки ЭЦП.
+\end_layout
+
+\begin_layout Standard
+Так, для генерации ЭЦП используется секретный ключ, с помощью которого шифруется
+ хэш открытого текста.
+ Результат отправляется вместе с открытым текстом принимающей стороне, которая
+ с помощью открытого ключа выполняет расшифрование.
+ Полученный хэш сравнивается с хэшем реально полученного сообщения, на основании
+ чего основывается вывод о целостности переданного сообщения.
+\end_layout
+
+\begin_layout Standard
+Криптостойкость используемого метода основана на проблеме факторизации больших
+ чисел, которая является значительной проблемой для существующих компьютеров.
+ Однако, при использовании 
+\emph on
+квантовых компьютеров
+\emph default
+ существует эффективный алгоритм факторизации чисел, который позволяет подбирать
+ секретный ключ на основе открытого за приемлемое время.
+\end_layout
+
+\begin_layout Пункт
+Криптография на эллиптических кривых
+\end_layout
+
+\begin_layout Standard
+В качестве иных принципов реализации асимметричных схем используются вычисления,
+ основанные на свойствах эллиптических кривых.
+\end_layout
+
+\begin_layout Standard
+Эллиптической кривой называют множество кубических кривых, задаваемых уравнением
+ следующего вида:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y^{2}+a_{1}xy+a_{3}y=x^{3}+a_{2}x^{2}+a_{4}x+a_{6}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Основной особенностью данных кривых является возможность проведения алгебраическ
+их операций над точками - а именно сложение и умножение, состоящие в нахождении
+ пересечений между прямой, образуемой точками, и кривой.
+ Однако, данные операции производятся над вещественными числами, использование
+ которых в различных криптографических алгоритмах невозможно.
+\end_layout
+
+\begin_layout Standard
+Поэтому указанные операции производят с использованием принципов модулярной
+ арифметики.
+ Уравнение эллиптической кривой в целочисленных координатах имеет вид:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y^{2}\bmod p=x^{3}+ax+b\bmod p
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $p$
+\end_inset
+
+ - достаточно большое число, обычно порядка 
+\begin_inset Formula $2^{256}$
+\end_inset
+
+, а коэффициенты 
+\begin_inset Formula $a$
+\end_inset
+
+ и 
+\begin_inset Formula $b$
+\end_inset
+
+ удовлетворяют следующему условию:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+4a^{3}+27b^{2}\neq0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Блок-схема алгоритма шифрования, основанного на использовании эллиптических
+ кривых, приведена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Elliptic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/elliptic.svg
+	height 70theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Elliptic"
+
+\end_inset
+
+Блок-схема алгоритма шифрования на эллиптических кривых
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+В качестве алгоритмов ЭЦП, основанных на эллиптических кривых, широко используют
+ся такие стандарты как ECDSA и ГОСТ 34.10-2012
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gost34.10"
+literal "false"
+
+\end_inset
+
+.
+ Их блок схемы приведены на рисунках 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ECDSA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ и 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ГОСТ 34.10"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, соответственно.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/ecdsa.svg
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ECDSA"
+
+\end_inset
+
+Блок-схема алгоритма генерации цифровой подписи ECDSA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/gost34.10.svg
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ГОСТ 34.10"
+
+\end_inset
+
+Блок-схема алгоритма ЭЦП ГОСТ 34.10-2012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Стойкость данной схемы основывается на проблеме дискретного логарифмирования
+ в группе точек эллиптической кривой.
+ На данный момент нет метода решения данной проблемы даже с субэкспоненциальной
+ сложностью, что позволит использовать данный алгоритм в том числе и на
+ квантовых компьютерах.
+\end_layout
+
+\begin_layout Пункт
+Эффективность алгоритмов шифрования
+\end_layout
+
+\begin_layout Standard
+Кроме изучения принципов работы описанных шифров, рассматриваются также
+ некоторые принципы оценки криптографической эффективности алгоритмов 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nechayev"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Основным методом оценки для шифров в историческом разрезе является использование
+ способов частотного анализа текста.
+ Данный способ основывается на статистическом анализе текста, а именно определен
+ии частоты встречаемости различных символов и их сочетаний в шифртексте
+ и их сравнении с открытым текстом.
+\end_layout
+
+\begin_layout Standard
+Частота встречаемости символов зависит от языка, а также от вида текста,
+ используемого для анализа.
+ Пример диаграммы встречаемости отдельных символов в русском языке для художеств
+енного текста приведен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Частотный анализ, теория"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/freq.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Частотный анализ, теория"
+
+\end_inset
+
+Диаграмма частот букв русского языка
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Частотный анализ шифртекста для моноалфавитных шифров, таких как Атбаш,
+ шифр Цезаря и т.п., используется в процессе дешифровки.
+ Выполнение простой замены символов в открытом тексте приводит к сохранению
+ той же частотной диаграммы и для шифротекста, в точностью до переименования
+ символов.
+\end_layout
+
+\begin_layout Standard
+Таким образом, частотный анализ шифротекста при достаточно большой длине
+ последнего помогает определить достаточно точное соответствие части символов
+ шифртекста символам открытого текста.
+ Даже если известно лишь частичное соответствие, дополнительный анализ остальных
+ символо зачастую позволяет полностью обратить результат шифрования.
+\end_layout
+
+\begin_layout Standard
+Однако, полиалфавитные шифры, такие как шифр Тритемия или Белазо, гораздо
+ менее подвержену данному способу дешифровки, чем моноалфавитные - частотные
+ 
+\begin_inset Quotes cld
+\end_inset
+
+пики
+\begin_inset Quotes crd
+\end_inset
+
+ на их частотной диаграмме выражены гораздо слабее, а в случае шифров с
+ большой периодичностью или использующих методы гаммирования, может представлять
+ собой практически горизонтальную линию.
+ Таким образом, частотный криптоанализ таких шифров значительно затруднен
+ или вовсе невозможен.
+\end_layout
+
+\begin_layout Standard
+Но несмотря на низкую распространенность моноалфавитных шифров, изучение
+ методов частотного анализа является достаточно важным в процессе обучения
+ студентов, в целях определения и сравнения криптостойкости некоторых простых
+ шифров.
+\end_layout
+
+\begin_layout Подраздел
+Выводы по главе 1
+\end_layout
+
+\begin_layout Standard
+В данной главе был проведен анализ основных методов защиты конфиденциальности
+ информации, изучаемых в рамках дисциплины 
+\begin_inset Quotes cld
+\end_inset
+
+Криптографические методы защиты информации.
+\end_layout
+
+\begin_layout Standard
+В процессе обучения студентов изучаются следующие основные методы защиты
+ конфиденциальности и целостности информации:
+\end_layout
+
+\begin_layout Itemize
+Идентификация и аутентификация;
+\end_layout
+
+\begin_layout Itemize
+Авторизация и разграничение доступа;
+\end_layout
+
+\begin_layout Itemize
+Использование алгоритмов шифрования данных и генерации ключей шифрования;
+\end_layout
+
+\begin_layout Itemize
+Использование механизмов цифровой подписи (ЦП).
+\end_layout
+
+\begin_layout Standard
+В качестве основных алгоритмов, изучаемых в рамках данной дисциплины, были
+ изучены:
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Атбаш;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Цезаря;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Квадрат Полибия;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Таблица Тритемия;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Белазо;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Виженера;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифра Энигма;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм шифрования и генерации ЦП RSA;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм генерации ЦП ECDSA;
+\end_layout
+
+\begin_layout Itemize
+Алгоритм генерации ЦП ГОСТ 34.10.
+\end_layout
+
+\begin_layout Standard
+Для подробного изучения данных алгоритмов необходимо не только знать основную
+ историю их появления и принципы, лежащие в их основе, но также необходимо
+ подробно изучить с преподавателем блок-схемы процессов шифрования и расшифрован
+ия, а также генерации и проверки цифровой подписи.
+\end_layout
+
+\begin_layout Standard
+В целях упрощения процесса обучения как для студентов, так и преподавателей,
+ разумно использовать интерактивные средства обучения, такие как возможность
+ непосредственного выполнения описанных для каждого алгоритма операций студентом
+, с применением различных обучающих программных средств.
+ Также такие средства должны иметь возможность удаленного предоставления
+ учебных материалов, в целях поощрения самостоятельной работы студентов,
+ а также возможность проведения тестирования по изученным материалам и алгоритма
+м.
+\end_layout
+
+\end_body
+\end_document

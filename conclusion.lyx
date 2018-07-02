@@ -1,0 +1,320 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Заключение
+Развитие информационных технологий с каждым днем оказывает все более значительно
+е влияние на все сферы жизни современного человека.
+ С каждым годом растет число атак, связанных с недостаточным уровнем защиты
+ приложений, а также с низким уровнем знания в области элементарных средств
+ защиты конфиденциальности информации.
+ Именно поэтому так важен процесс обучения студентов методам защиты, в том
+ числе и с использованием средств криптографии.
+\end_layout
+
+\begin_layout Standard
+В ходе теоретической части работы был проведен анализ основных методов защиты
+ конфиденциальности информации, изучаемых в рамках дисциплины 
+\begin_inset Quotes cld
+\end_inset
+
+Криптографические методы защиты информации.
+ Так, в процессе обучения студентов изучаются следующие основные методы
+ защиты конфиденциальности и целостности информации:
+\end_layout
+
+\begin_layout Itemize
+Идентификация и аутентификация;
+\end_layout
+
+\begin_layout Itemize
+Авторизация и разграничение доступа;
+\end_layout
+
+\begin_layout Itemize
+Использование алгоритмов шифрования данных и генерации ключей шифрования;
+\end_layout
+
+\begin_layout Itemize
+Использование механизмов цифровой подписи (ЦП).
+\end_layout
+
+\begin_layout Standard
+В целях упрощения процесса обучения как для студентов, так и преподавателей,
+ рекомендуется использовать интерактивные средства обучения, такие как возможнос
+ть непосредственного выполнения описанных для каждого алгоритма операций
+ студентом, с применением различных обучающих программных средств.
+ Такие средства должны иметь возможность удаленного предоставления учебных
+ материалов, в целях поощрения самостоятельной работы студентов, а также
+ возможность проведения тестирования по изученным материалам и алгоритмам.
+\end_layout
+
+\begin_layout Standard
+В ходе аналитической части работы были исследованы основные используемые
+ средства в области автоматизации процесса обучения студентов.
+ Рассмотренные средства используются как для размещения учебных материалов,
+ так и проведения тестирования.
+\end_layout
+
+\begin_layout Standard
+Указанные средства обладают следующими существенными недостатками и уязвимостями
+:
+\end_layout
+
+\begin_layout Itemize
+Привязка к определенной ОС (
+\emph on
+Microsoft Windows
+\emph default
+);
+\end_layout
+
+\begin_layout Itemize
+Закрытость исходного кода;
+\end_layout
+
+\begin_layout Itemize
+Отсутствие проверок вводимых данных и возможность внедрения стороннего кода;
+\end_layout
+
+\begin_layout Itemize
+Вычисление результатов теста на стороне клиента, а не сервера;
+\end_layout
+
+\begin_layout Itemize
+Отсутствие шифрования при передаче данных между клиентом и сервером.
+\end_layout
+
+\begin_layout Standard
+По результатам исследования, ни одно из рассматриваемых средств не предоставляет
+ студентам возможности интерактивного обучения конкретным алгоритмам, изучаемым
+ в рамках курса.
+ Этот недостаток не позволяет использовать указанные средства в качестве
+ полноценного учебного комплекса.
+\end_layout
+
+\begin_layout Standard
+В ходе практической части исследования был разработан интерактивный программный
+ комплекс для изучения методов обеспечения конфиденциальности информации.
+ В комплексе реализованы механизмы создания и редактирования учебных материалов,
+ тестов, выполнения операций по шифрованию и электронной подписи данных.
+ Программный комплекс реализован в соответствии с современными принципами
+ создания защищенных масштабируемых приложений.
+\end_layout
+
+\begin_layout Standard
+Комплекс позволяет осуществлять работу студентов и преподавателей со следую-
+\end_layout
+
+\begin_layout Standard
+щими модулями:
+\end_layout
+
+\begin_layout Itemize
+Библиотека учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов шифрования;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов ЭЦП;
+\end_layout
+
+\begin_layout Itemize
+Инструменты частотного анализа текста;
+\end_layout
+
+\begin_layout Itemize
+Модуль проведения тестов по пройденным материалам;
+\end_layout
+
+\begin_layout Itemize
+Авторизация пользователей и разграничение доступа;
+\end_layout
+
+\begin_layout Itemize
+Управление пользователями.
+\end_layout
+
+\begin_layout Standard
+Реализованный комплекс обладает следующими преимуществами:
+\end_layout
+
+\begin_layout Itemize
+Кроссплатформенность;
+\end_layout
+
+\begin_layout Itemize
+Открытый исходный код;
+\end_layout
+
+\begin_layout Itemize
+Масштабируемость;
+\end_layout
+
+\begin_layout Itemize
+Модульность;
+\end_layout
+
+\begin_layout Itemize
+Отсутствие необходимости в установке клиентской части комплекса;
+\end_layout
+
+\begin_layout Itemize
+Учтены недостатки существующих решений:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Аутентификация пользователей;
+\end_layout
+
+\begin_layout Itemize
+Шифрование соединения между клиентом и сервером;
+\end_layout
+
+\begin_layout Itemize
+Проверка вводимых данных;
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Защищенность от распространенных уязвимостей:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Защита от внедрения стороннего программного кода;
+\end_layout
+
+\begin_layout Itemize
+Защита от кражи Cookies;
+\end_layout
+
+\begin_layout Itemize
+Изоляция от ОС.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Разработанный интерактивный программный комплекс может быть использован
+ в образовательном процессе для для изучения методов обеспечения конфиденциально
+сти информации по дисциплине «Криптографические методы защиты информации».
+\end_layout
+
+\end_body
+\end_document

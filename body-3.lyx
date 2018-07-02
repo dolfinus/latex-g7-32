@@ -1,0 +1,1917 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Раздел
+Реализация программного комплекса
+\end_layout
+
+\begin_layout Подраздел
+Постановка задачи
+\end_layout
+
+\begin_layout Standard
+Таким образом, основной целью данной работы является разработка защищенного
+ программного комплекса для изучения методов конфиденциальности информации.
+\end_layout
+
+\begin_layout Standard
+В качестве основных задач, подлежащих разработке, 
+\end_layout
+
+\begin_layout Enumerate
+Описание структуры комплекса;
+\end_layout
+
+\begin_layout Enumerate
+Выбор языка программирования и платформы;
+\end_layout
+
+\begin_layout Enumerate
+Реализация интерактивных алгоритмов шифрования;
+\end_layout
+
+\begin_layout Enumerate
+Реализация интерактивных алгоритмов ЭЦП;
+\end_layout
+
+\begin_layout Enumerate
+Реализация блока частотного анализа;
+\end_layout
+
+\begin_layout Enumerate
+Реализация блока учебных материалов;
+\end_layout
+
+\begin_layout Enumerate
+Реализация блока проведения тестирования;
+\end_layout
+
+\begin_layout Enumerate
+Реализация защиты комплекса от НСД.
+\end_layout
+
+\begin_layout Standard
+Комплекс должен иметь модульную структуру, в целях удобного добавления новых
+ функций.
+ Также, при реализации комплекса должны быть учтены описанные ранее недостатки
+ существующих программных средств, такие как привязка к определенной ОС
+ или закрытость исходного кода.
+\end_layout
+
+\begin_layout Подраздел
+Структура комплекса
+\end_layout
+
+\begin_layout Standard
+Структура программного комплекса приведена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Структура-комплекса"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/structure.svg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Структура-комплекса"
+
+\end_inset
+
+Структура программного комплекса
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В качестве основы используется стандартная архитектура Клиент-Сервер, в
+ которой Сервер отвечает за хранение и обработку получаемых данных от пользовате
+лей, а Клиент представляет собой интерактивный интерфейс для взаимодействия
+ с Сервером.
+ Данная архитектура широко используется в различных программных средствах,
+ и позволяет создавать высокопроизводительные защищенные приложения.
+\end_layout
+
+\begin_layout Standard
+Взаимодействие между Клиентом и Сервером происходит с помощью интерфейса,
+ реализованного на основе методологии REST
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "REST"
+description "Передача состояния представления (англ. Representational State Transfer)"
+literal "false"
+
+\end_inset
+
+, которая предъявляет следующие требования к процессу взаимодействия:
+\end_layout
+
+\begin_layout Enumerate
+Единообразие интерфейса;
+\end_layout
+
+\begin_layout Enumerate
+Идентификация ресурсов;
+\end_layout
+
+\begin_layout Enumerate
+Самоописываемость передаваемых сообщений;
+\end_layout
+
+\begin_layout Enumerate
+Отсутствие передачи состояния.
+\end_layout
+
+\begin_layout Standard
+В качестве протокола обмена данными между Клиентом и Сервером был выбран
+ HTTP и его расширение HTTPS, так как они являются стандартом де-факто при
+ обмене информацией браузеров с серверами.
+ Протокол использует следующие виды запросов:
+\end_layout
+
+\begin_layout Itemize
+GET - получение ресурса;
+\end_layout
+
+\begin_layout Itemize
+POST - создание ресурса;
+\end_layout
+
+\begin_layout Itemize
+PUT - изменение ресурса;
+\end_layout
+
+\begin_layout Itemize
+DELETE - удаление ресурса.
+\end_layout
+
+\begin_layout Standard
+Совместное применение методологии REST и протокола HTTP позволяет создавать
+ простые и удобные в использовании интерфейсы взаимодействия между приложениями.
+ Например, интерфейс для управления учебными материалами может быть описан
+ совокупностью следующих запросов и форматов URL:
+\end_layout
+
+\begin_layout Itemize
+GET /articles/ - получение списка всех учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+GET /articles/new_article - получение учебного материала с идентификатором
+ new_article;
+\end_layout
+
+\begin_layout Itemize
+POST /articles/ - создать новый учебный материал (данные передаются в теле
+ запроса);
+\end_layout
+
+\begin_layout Itemize
+PUT /articles/changable_article - изменение учебного материала с идентификатором
+ changable_article (данные передаются в теле запроса);
+\end_layout
+
+\begin_layout Itemize
+DELETE /articles/deletable_article - удаление учебного материала с идентификатор
+ом deletable_article.
+\end_layout
+
+\begin_layout Standard
+Достоинством такой системы является то, что подобный интерфейс взаимодействия
+ не зависит от формата самих данных - например, учебный материал может передават
+ься в формате HTML, XML, JSON, в виде бинарного представления и т.п.
+ Таким образом, сервер лишь предоставляет базовые возможности по управлению
+ материалами, но клиент может использовать нужный ему формат хранения без
+ необходимости вносить какие-либо изменения в исходный код сервера.
+\end_layout
+
+\begin_layout Standard
+Благодаря этому, реализация протокола имеет следующие преимущества:
+\end_layout
+
+\begin_layout Itemize
+Надежность - процесс передачи не требует хранения информации о состоянии
+ клиента, а клиент получает все необходимые данные с сервера;
+\end_layout
+
+\begin_layout Itemize
+Высокая производительность - взаимодействие клиента и сервера не требует
+ выполнения сложных операций, а также активно использует кэширование;
+\end_layout
+
+\begin_layout Itemize
+Масштабируемость - сервер может иметь распределенную структуру, при этом
+ каждый экземпляр работает по одному принципу;
+\end_layout
+
+\begin_layout Itemize
+Прозрачность взаимодействия;
+\end_layout
+
+\begin_layout Itemize
+Простота внесения изменений.
+\end_layout
+
+\begin_layout Подраздел
+Основные языки программирования и используемые библиотеки
+\end_layout
+
+\begin_layout Standard
+В качестве основных языков программирования используются Python и JavaScript.
+\end_layout
+
+\begin_layout Standard
+Python (версии 3.6) представляет собой интерпретируемый язык программирования,
+ широко используемый для разработки веб-сервисов, а также различных модулей
+ для проведения вычислений.
+ Благодаря популярности данного языка, а проработанной документации, для
+ него существует множество готовых библиотек, позволяющих реализовывать
+ готовые кроссплатформенные приложения с поддержкой модульности и масштабируемос
+ти.
+ Данный язык будет использован для реализации Серверной составляющей.
+\end_layout
+
+\begin_layout Standard
+Также, так как данный язык является достаточно приближенным к английскому
+ языку, написанные материалы на нем обычно хорошо воспринимается при чтении
+ исходных кодов, благодаря использованию в нем максимально лаконичных конструкци
+й и отказу от использования специальных символов, широко распространенных
+ в других языках программирования 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "python"
+literal "false"
+
+\end_inset
+
+.
+ Это позволяет использовать его в качестве демонстрации принципов работы
+ некоторых алгоритмов.
+\end_layout
+
+\begin_layout Standard
+В качестве основы для разработки были выбраны библиотеки Flask и Flask-RESTful.
+\end_layout
+
+\begin_layout Standard
+Библиотека 
+\emph on
+Flask
+\emph default
+ применяется в качестве платформы для реализации приложений, основанных
+ на архитектуре Клиент-Сервер, и позволяет реализовывать эффективные приложения
+ с распледеленной структурой 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "flask"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Библиотека 
+\emph on
+Flask-RESTful
+\emph default
+ является подключаемым модулем данной платформы, позволяющий разрабатывать
+ архитектуру модулей, совместимую с методологией REST 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "flask_restful"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+JavaScript (в редакции ECMA
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ECMA"
+description "Европейская ассоциация производителей компьютеров (англ. European Computer Manufacturers Association)"
+literal "false"
+
+\end_inset
+
+ Script 7) представляет собой интерпретируемый язык программирования, используем
+ый в основном в веб-браузерах.
+ Данный язык позволяет реализовывать интерактивные веб-страницы (или так
+ называемые 
+\emph on
+веб-приложения
+\emph default
+), а благодаря широкому списку браузеров, позволяющих его исполнять, может
+ использоваться практически на любой операционной системе 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "js"
+literal "false"
+
+\end_inset
+
+.
+ Это позволяет создавать пользовательские интерфейсы без привязки к конкретным
+ библиотекам элементов ввода, которые зачастую не являются переносимыми
+ на другие ОС из-за архитектурных особенностей.
+\end_layout
+
+\begin_layout Standard
+Основной библиотекой при разработке на JavaScript была выбрана платформа
+ 
+\emph on
+Vue.js
+\emph default
+, пощволяющая реализовывать интерактивные веб-приложения с использованием
+ принципов реактивного программирования.
+ Данная платформа позволяет составлять приложения из отдельных компонентов,
+ при этом задачи, связанные с необходимостью обновления данных на интерфейсе,
+ занимают минимально возможное время 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vue"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В качестве библиотек для управления переходом между состояниями приложения,
+ а также навигацией между его модулями, выбраны расширения платформы 
+\emph on
+Vuex
+\emph default
+ и 
+\emph on
+Vue-routes
+\emph default
+.
+ Первая библиотека упрощает разработку взаимодействия с сервером, обеспечивая
+ сохранение полученных данных в локальном хранилище браузера (
+\emph on
+Local Storage
+\emph default
+), обеспечивая кэширование данных и уменьшение числа обращений к серверу
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vuex"
+literal "false"
+
+\end_inset
+
+.
+ Вторая библиотека позволяет осуществлять синхронизацию текущего состояния
+ приложения с историей браузера, а также предоставляет возможность перенаправлен
+ия пользователя в требуемые модули при совершении определенных операций
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "vue_routes"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Благодаря выбору скриптовых языков программирования для реализации клиентской
+ и серверной части приложения, они могут быть запущены на устройствах с
+ любой архитектурой процессора (x86, ARM, MIPS), а также любой ОС с поддержкой
+ пользовательского интерфейса.
+\end_layout
+
+\begin_layout Подраздел
+Размещение исходного кода
+\end_layout
+
+\begin_layout Standard
+Исходный код приложения размещен на открытом веб-хостинге Github
+\begin_inset CommandInset citation
+LatexCommand cite
+key "github"
+literal "false"
+
+\end_inset
+
+.
+ Данный хостинг позволяет размещать так называемые 
+\emph on
+репозитории
+\emph default
+ - хранилища для любых типов данных.
+ В основном хранимые данные представляют собой исходный код различных приложений
+ и программных средств, при этом возможно создание как открытого репозитория,
+ содержимое которого доступно любым пользователям (в том числе и неавторизованны
+м), так и закрытого, работать с которым может только определенный круг лиц.
+\end_layout
+
+\begin_layout Standard
+В данном случае для создания репозитория использовалась система контроля
+ версий Git
+\begin_inset CommandInset citation
+LatexCommand cite
+key "git"
+literal "false"
+
+\end_inset
+
+, позволяющая осуществлять удобную разработку исходного приложения, в том
+ числе и с использованием принципов версионирования и многопользовательского
+ редактирования.
+ Также, данная система является кроссплатформенной, и позволяет совместно
+ реализовывать приложения команде из нескольких разработчиков, которые раборают
+ под различными ОС.
+\end_layout
+
+\begin_layout Подраздел
+Программные модули
+\end_layout
+
+\begin_layout Standard
+В данном программном комплексе представлены различные модули, которые могут
+ быть использованы для обучения студентов методам обеспечения конфиденциальности.
+\end_layout
+
+\begin_layout Standard
+Это модули:
+\end_layout
+
+\begin_layout Itemize
+Библиотека учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов шифрования;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов ЭЦП;
+\end_layout
+
+\begin_layout Itemize
+Инструменты частотного анализа текста;
+\end_layout
+
+\begin_layout Itemize
+Модуль проведения тестов по пройденным материалам;
+\end_layout
+
+\begin_layout Itemize
+Авторизация пользователей и разграничение доступа;
+\end_layout
+
+\begin_layout Itemize
+Управление пользователями.
+\end_layout
+
+\begin_layout Standard
+Рассмотрим каждый из них подробнее.
+\end_layout
+
+\begin_layout Пункт
+Авторизация пользователей и разграничение доступа
+\end_layout
+
+\begin_layout Standard
+При работе с комплексом выделяются две различные категории пользователей:
+\end_layout
+
+\begin_layout Itemize
+Преподаватели
+\end_layout
+
+\begin_layout Itemize
+Студенты
+\end_layout
+
+\begin_layout Standard
+Несомненно, обе категории должны иметь различные права доступа к модулям
+ приложения.
+ Также, в некоторых случаях пользователей необходимо различать друг от друга
+ в рамках одной категории - например, при проведении тестов результаты закрепляю
+тся за каждым отдельным пользователем.
+\end_layout
+
+\begin_layout Standard
+Таким образом, в программном комплексе предусмотрен модуль авторизации и
+ аутентификации пользователей, который определяет по введенному идентификатору,
+ существует ли данный пользователь в системе, производит его авторизацию
+ по известному только пользователю секретному ключу (паролю), а также проверяет
+ выданные пользователю права доступа к различным модулям.
+\end_layout
+
+\begin_layout Standard
+Интерфейс данного модуля (экран входа в приложение) представлен на рисунке
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Экран входа"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/login.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Экран входа"
+
+\end_inset
+
+Экран входа в систему
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+После авторизации в программном комплексе пользователь получает доступ к
+ основному экрану и другим модулям.
+\end_layout
+
+\begin_layout Пункт
+Учебные материалы
+\end_layout
+
+\begin_layout Standard
+Данный модуль представляет собой библиотеку учебных материалов, которая
+ доступна студенту на время обучения.
+ Библиотека наполняется преподавателем путем создания новых материалов или
+ редактирования уже существующих.
+ 
+\end_layout
+
+\begin_layout Standard
+Внешний вид редактора (интерфейс преподавателя) представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Материалы, преподаватель"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/articles_admin.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Материалы, преподаватель"
+
+\end_inset
+
+Внешний вид редактора материалов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Редактор позволяет вносить в статьи как стандартные блоки (изображения,
+ таблицы, списки), так и интерактивные - например, ссылки или встроенные
+ в помощью iframe видео- и аудио-материалы, разъясняющие тот или иной материал.
+ Также, создаваемые материалы можно категорировать - например, разделяя
+ их по отдельным модулям, предусмотренным образовательной программой, или
+ выполнять разделение по изучаемых на курсе предметах.
+\end_layout
+
+\begin_layout Standard
+Все создаваемые материалы автоматически становятся доступными в интерфейсе
+ студента.
+ Его внешний вид приведен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Материалы, студент"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/articles_student.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Материалы, студент"
+
+\end_inset
+
+Интерфейс просмотра материалов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В отличие от преподавателя, студент не имеет права создавать или изменять
+ материалы.
+\end_layout
+
+\begin_layout Пункт
+Алгоритмы шифрования
+\end_layout
+
+\begin_layout Standard
+Данный модуль представляет собой интерактивную библиотеку различных алгоритмов
+ шифрования.
+ Ее интерфейс, представленный на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Шифры"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, одинаков для преподавателя и студента:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/ciphers.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Шифры"
+
+\end_inset
+
+Внешний вид библиотеки шифров
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Путем выбора конкретного алгоритма и ввода необходимых данных в предусмотренные
+ для поля, студент может выполнять операции шифрования и расшифрования над
+ текстом или другими введенными данными.
+\end_layout
+
+\begin_layout Standard
+С помощью данного модуля преподаватель может наглядно продемонстирировать
+ работу различных алгоритмов шифрования.
+ Представленные алгоритмы охватывают различные периоды истории использования
+ криптографических средств, и могут использоваться в качестве стенда для
+ демонстрации все более увеличивающейся сложности методов защиты.
+\end_layout
+
+\begin_layout Пункт
+Алгоритмы цифровой подписи
+\end_layout
+
+\begin_layout Standard
+Данный модуль функционально аналогичен библиотеке алгоритмов шифрования.
+ Его интерфейс представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ЦП"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/eds.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ЦП"
+
+\end_inset
+
+Интерфейс библиотеки алгоритмов ЦП
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Модуль позволяет создавать цифровую подпись для вводимых в предусмотренные
+ поля данных, а также проверять данную ЦП.
+\end_layout
+
+\begin_layout Пункт
+Инструменты частотного анализа
+\end_layout
+
+\begin_layout Standard
+Данный модуль представляет собой интерактивную диаграмму частот встречаемости
+ символов в тексте.
+ Его интерфейс представлен на рисунке
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Частотный анализ"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/instruments.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Частотный анализ"
+
+\end_inset
+
+Интерфейс инструментов частотного анализа
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При вводе текста в предусмотренное поле производится расчет частоты встречаемост
+и символов, биграмм или триграмм в нем.
+ Диаграмма является интерактивной, и при вводе происходит ее автоматическая
+ перерисовка.
+ Также доступно скачивание таблицы с результатами анализа в формате 
+\emph on
+.xlsx
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Модуль доступен как для преподавателей, так и для студентов.
+\end_layout
+
+\begin_layout Пункт
+Тестирование
+\end_layout
+
+\begin_layout Standard
+Данный модуль позволяет осуществлять тестирование по результатам обучения,
+ и состоит из нескольких подмодулей:
+\end_layout
+
+\begin_layout Itemize
+Создание и редактирование тестов
+\end_layout
+
+\begin_layout Itemize
+Проведение тестирования
+\end_layout
+
+\begin_layout Itemize
+Просмотр результатов
+\end_layout
+
+\begin_layout Standard
+Каждый из подмодулей имеет собственный интерфейс и решает отдельную задачу.
+\end_layout
+
+\begin_layout Подпункт
+Создание и редактирование тестов
+\end_layout
+
+\begin_layout Standard
+Интерфейс подмодуля представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Создание тестов"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_edit.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Создание тестов"
+
+\end_inset
+
+Интерфейс подмодуля создания тестов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Он позволяет преподавателю создавать и редактировать существующие тесты.
+ В качестве основных параметров тестов можно устанавливать:
+\end_layout
+
+\begin_layout Itemize
+Длительность теста (в минутах);
+\end_layout
+
+\begin_layout Itemize
+Время открытия теста;
+\end_layout
+
+\begin_layout Itemize
+Время закрытия теста.
+\end_layout
+
+\begin_layout Standard
+Количество вопросов не ограничено, преподаватель может устанавливать его
+ по своему усмотрению.
+\end_layout
+
+\begin_layout Standard
+Среди типов вопросов можно использовать следующие:
+\end_layout
+
+\begin_layout Itemize
+Вопросы с одним вариантом ответа;
+\end_layout
+
+\begin_layout Itemize
+Вопросы с несколькими вариантами ответа.
+\end_layout
+
+\begin_layout Standard
+Интерфейс редактирования содержания вопросов аналогичен тому, что используется
+ при редактировании учебных материалов, и позволяет использовать расширения,
+ такие как изображения или ссылки.
+\end_layout
+
+\begin_layout Standard
+Студенты не имеют доступа к данному подмодулю.
+\end_layout
+
+\begin_layout Подпункт
+Проведение тестирования
+\end_layout
+
+\begin_layout Standard
+Интерфейс данного подмодуля представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Прохождение тестов"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_run.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Прохождение тестов"
+
+\end_inset
+
+Интерфейс подмодуля проведения тестов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подмодуль доступен как для студентов, так и для преподавателей, в качестве
+ средства контроля его работы.
+ Тесты становятся доступными для прохождения в том случае, если текущая
+ дата находится в промежутке между датами открытия и закрытия, а также еще
+ не был пройден пользователем или завершен по таймауту.
+\end_layout
+
+\begin_layout Standard
+Пока тест доступен, пользователь может приступить к его прохождению или
+ вернуться к последнему открытому вопросу, если во время прохождения возникали
+ проблемы с доступом к комплексу.
+\end_layout
+
+\begin_layout Standard
+Отображение каждого вопроса сопровождается выводом времени с начала прохождения
+ теста, а также временем до его завершения.
+ Вопросы можно пропускать или досрочно завершать прохождение.
+ После этого тест пропадает из списка доступных, и происходит автоматический
+ переход к результатам.
+\end_layout
+
+\begin_layout Подпункт
+Просмотр результатов
+\end_layout
+
+\begin_layout Standard
+Интерфейс данного подмодуля представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Отображение результатов, студент"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_result.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Отображение результатов, студент"
+
+\end_inset
+
+Интерфейс подмодуля просмотра результатов теста
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В нем отображаются тесты, которые были пройдены пользователем или время
+ их прохождения истекло.
+ Студент может получить информацию о времени начала и окончания прохождения,
+ были ли тест пройден или завершен по истечению времени, а также узнать
+ полученный балл за его прохождение.
+\end_layout
+
+\begin_layout Standard
+После того, как период доступности теста для прохождения завершается, студент
+ может получить более подробную информацию о прохождении теста, в том числе
+ собственные ответы на вопросы, а также отметку, какие на какие вопросы
+ были даны неверные ответы.
+\end_layout
+
+\begin_layout Standard
+Интерфейс преподавателя, представленный на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Отображение результатов, студент"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, имеет существенные отличия:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_results.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Отображение результатов, преподаватель"
+
+\end_inset
+
+Интерфейс подмодуля просмотра ведомости
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В отличие от интерфейса студента, информация в нем представлена в виде ведомости
+, в которой указана информация о результатах прохождения теста студентами.
+ Ведомость поддерживает функции поиска, разделения выводимых результатов
+ на страницы, а также позволяет скачивать результаты в виде 
+\emph on
+.xslx
+\emph default
+ файла.
+\end_layout
+
+\begin_layout Пункт
+Управление пользователями
+\end_layout
+
+\begin_layout Standard
+Данный модуль представляет собой интерфейс для создания и редактирования
+ параметров пользователей.
+ Его интерфейс представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Пользователи"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/users.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Пользователи"
+
+\end_inset
+
+Интерфейс модуля управления пользователями
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+С помощью данного модуля преподаватель может добавлять в систему новых пользоват
+елей, а также управлять правами - указывая, имеет ли пользователь права
+ администратора или же является студентом.
+ Изменение данных уже существующих пользователей не требует знания пароля,
+ как это обычно происходит на публичных сайтах.
+\end_layout
+
+\begin_layout Standard
+Студенты также имеют доступ к данному модулю, однако они могут изменять
+ только настройки собственного пользователя - ФИО и пароль, и не имеют доступа
+ к данным других пользователей.
+\end_layout
+
+\begin_layout Подраздел
+Средства защиты учебного комплекса от НСД
+\end_layout
+
+\begin_layout Пункт
+Шифрование соединения и аутентификация сервера
+\end_layout
+
+\begin_layout Standard
+Разработанный программный комплекс реализован с использованием протокола
+ передачи HTTPS.
+ Данный протокол использует при работе криптографические протоколы SSL и
+ TLS, которые обеспечивают защищенный обмен данными по сети.
+\end_layout
+
+\begin_layout Standard
+При установлении соединения между клиентом и сервером выполняется проверка
+ сертификата сервера - является ли он доверенным или подписан доверенным
+ центром сертификации - а затем на основании сертификата генерируется пара
+ ключей для каждой из сторон, с помощью которых обеспечивается надежное
+ шифрование канала связи.
+\end_layout
+
+\begin_layout Standard
+В данном случае используются следующие параметры соединения:
+\end_layout
+
+\begin_layout Enumerate
+Длина ключа - 128 бит;
+\end_layout
+
+\begin_layout Enumerate
+Алгоритм генерации ключей - RSA;
+\end_layout
+
+\begin_layout Enumerate
+Алгоритм шифрования передаваемых данных - AES
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "AES"
+description "Стандарт симметричного алгоритма блочного шифрования (англ. Avdanced Encryption Standart)"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "intuit"
+literal "false"
+
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+Хэш-функция - SHA256
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "SHA256"
+description "Безопасный алгоритм хэширования (англ. Secure Hash Algorithm)"
+literal "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "smart"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В отличие от многих других методов установления защищенного соединения между
+ узлами сети, SSL
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "SSL"
+description "Уровень защищенности сокетов (англ. Secure Sockets Layer)"
+literal "false"
+
+\end_inset
+
+/TLS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "TLS"
+description "Протокол защиты транспортного уровня (англ. Transport Layer Security)"
+literal "false"
+
+\end_inset
+
+ является одним из основных стандартов, который поддерживается всеми браузерами.
+ Также, в отличие от IPSec, его реализации не отличаются друг от друга на
+ различном оборудовании или в разных ОС, что позволяет работать с комплексом
+ с любого устройства, имеющего доступ в сеть.
+\end_layout
+
+\begin_layout Пункт
+Изоляция от ОС
+\end_layout
+
+\begin_layout Standard
+В целях защиты программного комплекса от намеренных изменений программного
+ кода, используется изоляция запускаемых процессов в программном контейнере,
+ не зависящем от ОС, под которой он запускается.
+\end_layout
+
+\begin_layout Standard
+В качестве способа изоляции используется система контейнеризации приложений
+ Docker 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "docker"
+literal "false"
+
+\end_inset
+
+.
+ Она позволяет создавать и манипулировать контейнерами - объектами, представляющ
+ими собой отдельную ОС, в которой запущено приложение с необходимыми зависимостя
+ми.
+\end_layout
+
+\begin_layout Standard
+Доступ к данным, содержащимся в контейнере, возможен только при наличии
+ у пользователя определенных прав, которые обычно предоставляются лишь администр
+атору системы.
+ Так как изоляция происходит на уровне ядра операционной системы, доступ
+ к запущенным внутри контейнера процессам извне также ограничен.
+\end_layout
+
+\begin_layout Standard
+В программном комплексе используется изоляция всех запускаемых модулей в
+ отдельных контейнерах.
+ Схема изоляции приведена на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Контейнеры"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename svg/docker.svg
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Контейнеры"
+
+\end_inset
+
+Схема изолирования программного комплекса от ОС
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Контейнер, с которым непосредственно взаимодействует пользователь - 
+\emph on
+web
+\emph default
+ - представляет собой веб-сервер с набором статических файлов, которые отправляю
+тся в браузер и выполняют отрисовку интерфейса.
+ Запросы к интерактивной части комплекса передаются через данный контейнер
+ в отдельный, что позволяет защититься от атак внедрения пользовательских
+ скриптов на сервер, так как в текущем контейнере отсутствует прямой доступ
+ к серверной части приложения и БД
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "БД"
+description "База данных"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Контейнер с интерактивной частью комплекса - 
+\emph on
+app
+\emph default
+ - запущен отдельно от доступной пользователю части.
+ В нем находится программный код модулей, обрабатывающих запросы на взаимодейств
+ие шифрование, расшифрование и подпись данных при использовании пользователями
+ библиотек шифров и ЭЦП, соответственно.
+\end_layout
+
+\begin_layout Standard
+Запросы же на создание и внесение изменений в учебные материалы, тесты и
+ список пользователей, выполняются в последнем контейнере - 
+\emph on
+db.
+
+\emph default
+ В данном контейнере запущена 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "СУБД"
+description " Система управления базами данных"
+literal "false"
+
+\end_inset
+
+, обеспечивающая непосредственно возможность хранения данных, а также выполняюща
+я проверку допустимости выполнения запросов от контейнера 
+\emph on
+app
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+В качестве СУБД используется PostgresSQL v10, обладающая широкими возможностями
+ по защите конфиденциальности данных - от хэширования паролей пользователей
+ до шифрования как отдельных колонок и таблиц, так и всей БД в целом.
+\end_layout
+
+\begin_layout Standard
+Данная структура позволяет обеспечивать максимальную защиту данных, начиная
+ от их передачи со стороны клиента, и заканчивая их долговременных хранением
+ в БД.
+\end_layout
+
+\begin_layout Пункт
+Ограничение на доступ к материалам
+\end_layout
+
+\begin_layout Standard
+Некоторые ситуации использования программного комплекса требуют повышенного
+ внимания к возможности утечки информации.
+\end_layout
+
+\begin_layout Standard
+Например, при прохождении тестов студент не должен иметь доступа к учебным
+ материалам, так как в них напрямую содержатся ответы на вопросы тестирования.
+ Для этого при открытии соответствующего теста указанный модуль блокируется
+ для конкретного пользователя, до тех пор, пока тест не будет пройден или
+ завершен по таймауту.
+\end_layout
+
+\begin_layout Standard
+Данный метод позволяет обеспечить более достоверные результаты тестирования.
+\end_layout
+
+\begin_layout Standard
+Также для того, чтобы пользователи не имели возможности создавать локальные
+ копии материалов перед проведением запланированного тестирования, в библиотеке
+ учебных материалов применены определенные методы защиты от копирования.
+\end_layout
+
+\begin_layout Standard
+Так, для поля, в котором отображается материал, отключены события выделения
+ мышью, обработки комбинаций клавиш копирования содержимого (
+\emph on
+Ctrl + C
+\emph default
+), а также отключено контекстное меню, в котором можно выбрать пункт копирования
+ материала в буфер обмена.
+\end_layout
+
+\begin_layout Standard
+В качестве дополнительной меры, в браузерах семейства 
+\emph on
+Internet Explorer 
+\emph default
+также контролируется функция снятия снимков экрана, что позволяет предотвратить
+ копирование материалов путем снятия копии в виде растрового изображения.
+\end_layout
+
+\begin_layout Подраздел
+Выводы по главе 3
+\end_layout
+
+\begin_layout Standard
+В данной главе была проведена разработка интерактивного программного комплекса
+ для изучения методов обеспечения конфиденциальности информации.
+\end_layout
+
+\begin_layout Standard
+Комплекс позволяет осуществлять работу студентов и преподавателей со следующими
+ модулями:
+\end_layout
+
+\begin_layout Itemize
+Библиотека учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов шифрования;
+\end_layout
+
+\begin_layout Itemize
+Библиотека алгоритмов ЭЦП;
+\end_layout
+
+\begin_layout Itemize
+Инструменты частотного анализа текста;
+\end_layout
+
+\begin_layout Itemize
+Модуль проведения тестов по пройденным материалам;
+\end_layout
+
+\begin_layout Itemize
+Авторизация пользователей и разграничение доступа;
+\end_layout
+
+\begin_layout Itemize
+Управление пользователями.
+\end_layout
+
+\begin_layout Standard
+Используемая модульная архитектура, а также применение принципов REST позволяет
+ использовать методы масштабирования как для отдельных частей приложения,
+ так и для всего комплекса в целом, обеспечивая его высокую производительность.
+\end_layout
+
+\begin_layout Standard
+Серверная часть комплекса использует для работы скриптовый язык Python,
+ который является кросплатформенным, что позволяет запускать комплекса на
+ устройствах с любой архитектурой процессора и любым семейством ОС.
+ Для упрощения работы с комплексом разработана инструкция администратору,
+ содержание которой приведено в приложении А.
+\end_layout
+
+\begin_layout Standard
+Клиентская часть комплекса представляет собой интерактивную веб-страницу,
+ совместимую с любыми современными браузерами, совместимыми со стандартом
+ ECMA.
+ Также это позволяет снизить нагрузку на администраторов комплекса, так
+ как установка клиентской части приложения на ПК студентов не требуется
+ благодаря тому, что браузеры являются неотъемлимой частью современных ОС.
+\end_layout
+
+\begin_layout Standard
+Комплекс реализовано с учетом основных недостатков и уязвимостей, обнаруженных
+ в процессе работы с другими используемыми учебными комплексами.
+ Так, архитектура комплекса с выполнением необходимых операций на стороне
+ сервера, совместно с шифрованием соединения между клиентом и сервером позволяет
+ исключить возможность вмешательства в процесс тестирования студентов.
+\end_layout
+
+\begin_layout Standard
+Модули изолированы от основной ОС с помощью системы контейнеризации Docker,
+ что позволяет обеспечить дополнительную защиту комплекса как от возможных
+ атак, связанных с уязвимостями используемых библиотек, так и от возможного
+ вмешательства других пользователей на сервере пользователей в .
+\end_layout
+
+\begin_layout Standard
+Исходный код приложения опубликован в личном репозитории на хостинге Github
+ с открытым доступом.
+ Код программного комплекса распространяется под публичной лицензией MIT
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mit"
+literal "false"
+
+\end_inset
+
+, которая позволяет использовать данный код как в некоммерческих, так и
+ коммерческих целях.
+ Доступ к исходному коду можно получить по ссылке 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/dolfinus/cryptonite
+\end_layout
+
+\end_inset
+
+.
+ Также исходный код основных разработанных модулей, в том числе и алгоритмов
+ шифрования, представлен в приложении Б.
+\end_layout
+
+\begin_layout Standard
+Совокупность данных факторов позволяет использовать реализованный комплекс
+ в процессе обучения дисциплине 
+\begin_inset Quotes cld
+\end_inset
+
+Криптографические методы защиты информации
+\begin_inset Quotes crd
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

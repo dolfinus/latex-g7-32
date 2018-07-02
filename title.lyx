@@ -1,0 +1,369 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{gobble}
+\end_layout
+
+\end_inset
+
+Министерство образования и науки Российской Федерации
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+offset "1ex"
+width "99col%"
+height "1pt"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series bold
+\size small
+Федеральное государственное образовательное учреждение высшего образования
+\bar under
+
+\begin_inset Newline newline
+\end_inset
+
+
+\bar default
+«Национальный исследовательский университет
+\begin_inset Newline newline
+\end_inset
+
+«Московский институт электронной техники»
+\begin_inset Newline newline
+\end_inset
+
+Кафедра «Информационная безопасность» (ИБ)
+\bar under
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+\size default
+\bar default
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+ОТЧЕТ
+\begin_inset Newline newline
+\end_inset
+
+О ПРЕДДИПЛОМНОЙ ПРАКТИКЕ
+\size large
+
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+2017/2018 учебный год, 8 семестр
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Направление подготовки 10.03.01 «Информационная безопасность»
+\begin_inset Newline newline
+\end_inset
+
+Профиль подготовки «Техническая защита информации»
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Тема выпускной квалификационной работы (бакалаврской работы):
+\begin_inset Newline newline
+\end_inset
+
+«Разработка интерактивного программного комплекса для изучения
+\begin_inset Newline newline
+\end_inset
+
+методов обеспечения конфиденциальности информации»
+\size small
+\bar under
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Руководитель: к.ф.-м.н., доцент
+\series default
+
+\begin_inset space \hfill{}
+\end_inset
+
+Бутакова Н.Г.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Выполнил: студент учебной группы
+\series default
+ 
+\series bold
+МП-43
+\series default
+
+\begin_inset space \hfill{}
+\end_inset
+
+Мартынов М.С.
+\series bold
+\size small
+\bar under
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\noindent
+\align center
+
+\size small
+Москва, 2018 г
+\end_layout
+
+\end_body
+\end_document

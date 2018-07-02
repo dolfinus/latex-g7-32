@@ -1,0 +1,1214 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Раздел
+Обзор существующих учебных комплексов
+\end_layout
+
+\begin_layout Подраздел
+Основные особенности обучающих программных средств
+\end_layout
+
+\begin_layout Standard
+В процессе обучения студентов на кафедре Информационная безопасность НИУ
+ МИЭТ, преподаватели используют различные программные средства.
+ К ним относятся:
+\end_layout
+
+\begin_layout Itemize
+Удаленное предоставление учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+Средства интерактивного обучения;
+\end_layout
+
+\begin_layout Itemize
+Средства тестирования студентов.
+\end_layout
+
+\begin_layout Standard
+Данные средства представлены как разработками НИУ МИЭТ, так и сторонними
+ приложениями.
+ Используемые средства могут отличаться в зависимости от курса или даже
+ отдельной дисциплины.
+\end_layout
+
+\begin_layout Standard
+Так, в рамках дисциплины 
+\begin_inset Quotes cld
+\end_inset
+
+Криптографические методы защиты информации
+\begin_inset Quotes crd
+\end_inset
+
+ испольуются следующие основные средства:
+\end_layout
+
+\begin_layout Itemize
+ОРИОКС (учебные материалы);
+\end_layout
+
+\begin_layout Itemize
+MyTest (тестирование);
+\end_layout
+
+\begin_layout Itemize
+ЭМИРС (контрольные мероприятия).
+\end_layout
+
+\begin_layout Standard
+Также стоит отметить, что обучение алгоритмам шифрования и ЭЦП производится
+ в основном с использованием лекционных материалов и демонстрации методов
+ их работы с помощью наглядных блок-схем.
+ Однако интерактивные средства в данном случае не применяются, так как на
+ данный момент отсутствуют программные решения, которые имели бы в своем
+ составе все необходимые алгоритмы.
+\end_layout
+
+\begin_layout Подраздел
+Обзор среды ОРИОКС
+\end_layout
+
+\begin_layout Standard
+Данная программная среда является многофункциональной разработкой НИУ МИЭТ.
+ Основное ее применение состоит в том, чтобы предоставить студентам возможность
+ получения исчерпывающей информации о процессе обучения, а именно:
+\end_layout
+
+\begin_layout Itemize
+Список изучаемых дисциплин;
+\end_layout
+
+\begin_layout Itemize
+Ведомость по каждой из них;
+\end_layout
+
+\begin_layout Itemize
+Учебные материалы по изучаемым курсам.
+\end_layout
+
+\begin_layout Standard
+Интерфейс данной среды представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ОРИОКС"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/orioks.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ОРИОКС"
+
+\end_inset
+
+Пример интерфейса среды ОРИОКС
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Преподаватель может прикреплять заранее подготовленные методические материалы
+ к дисциплине, обеспечивая таким образом возможность удаленного обучения
+ студентов.
+ Также, данный модуль обеспечивает доступ к системе тестирования ЭМИРС и
+ позволяет просматривать результаты выполненных тестов.
+\end_layout
+
+\begin_layout Standard
+Система широко используется в рамках образовательного процесса и имеет все
+ необходимые функции.
+ Однако, она обладает рядом недостатков, таких как:
+\end_layout
+
+\begin_layout Itemize
+Отсутствие контроля за скачиванием учебных материалов;
+\end_layout
+
+\begin_layout Itemize
+Необходимость согласования изменений в составе материалов со специальным
+ отделом (каб.
+ 4100).
+\end_layout
+
+\begin_layout Standard
+Таким образом, студент может получить учебные материалы заранее, а затем
+ использовать их для ответов на тесты во время проведения контрольных мероприяти
+й.
+ Либо возможно выполнить данные действия прямо во время тестирования, так
+ как преподавателю сложно временно скрыть материалы в одностороннем порядке.
+ В итоге результат тестирования не показывает действительных знаний студента,
+ а в ведомость может попасть заведомо завышенная оценка.
+\end_layout
+
+\begin_layout Подраздел
+Обзор среды тестирования MyTest
+\end_layout
+
+\begin_layout Standard
+Данное приложение широко распространено в учреждениях среднего и высшего
+ образования.
+ Оно предназначено для проведения тестирования по определенным курсам подготовки
+ или модулям в составе образовательных программ, как с целью выявить уровень
+ знаний по учебным дисциплинам, так и с обучающими целями.
+ Также данное приложение может использоваться предприятиями и организациями,
+ в целях проведения сертификации.
+\end_layout
+
+\begin_layout Standard
+Интерфейс приложения представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MyTest"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/mytest.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MyTest"
+
+\end_inset
+
+Пример интерфейса приложения MyTest
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Программа MyTest работает с несколькими типами заданий:
+\end_layout
+
+\begin_layout Enumerate
+Одиночный выбор;
+\end_layout
+
+\begin_layout Enumerate
+Множественный выбор;
+\end_layout
+
+\begin_layout Enumerate
+Установление порядка следования;
+\end_layout
+
+\begin_layout Enumerate
+Установление соответствия;
+\end_layout
+
+\begin_layout Enumerate
+Указание истинности или ложности утверждений;
+\end_layout
+
+\begin_layout Enumerate
+Ручной ввод числа, ручной ввод текста;
+\end_layout
+
+\begin_layout Enumerate
+Выбор места на изображении;
+\end_layout
+
+\begin_layout Enumerate
+Перестановка букв.
+\end_layout
+
+\begin_layout Standard
+В тесте можно задавать неограниченное количество вопросов любого из указанных
+ типов.
+ В заданиях с выбором ответа (типы 
+\emph on
+а, б 
+\emph default
+и
+\emph on
+ в
+\emph default
+) можно использовать до 10 вариантов ответа.
+\end_layout
+
+\begin_layout Standard
+Приложение имеет встроенный текстовый редактор с широкими возможностями
+ форматирования текста вопросов и вариантов ответа.
+ Так, для текста можно задавать шрифт, цвет символов и фона, использовать
+ верхний и нижний индекс, разбивать текст на абзацы, использовать списки,
+ а также вставлять рисунки и формулы.
+\end_layout
+
+\begin_layout Standard
+Перечислим плюсы указанного программного средства:
+\end_layout
+
+\begin_layout Enumerate
+Широкие возможности по оформлению тестов;
+\end_layout
+
+\begin_layout Enumerate
+Несколько различных типов вопросов в рамках теста;
+\end_layout
+
+\begin_layout Enumerate
+Возможность как локального, так и сетевого прохождения теста;
+\end_layout
+
+\begin_layout Enumerate
+Отображение результатов в виде подробной ведомости;
+\end_layout
+
+\begin_layout Enumerate
+Бесплатное распространение для некоммерческого использования.
+\end_layout
+
+\begin_layout Standard
+Однако, приложение имеет в том числе и ряд недостатков.
+\end_layout
+
+\begin_layout Standard
+Например, создаваемые тесты сохраняются в собственном бинарном формате,
+ не совместимом с другими подобными приложениями или текстовыми редакторами.
+ Таким образом, при прекращении поддержки данного приложения производителем
+ перенос тестов в другие приложения может занять значительное время, а в
+ некоторых случаях может быть полностью невозможным.
+\end_layout
+
+\begin_layout Standard
+В числе прочих недостатков можно отметить необходимость установки клиентской
+ части приложения на ПК обучающегося.
+ Это приводит к необходимости развертывания приложения при обслуживании
+ большого числа ПК, установленных, например, на территории образовательных
+ учреждений, а значит требует от администраторов наличия от определенных
+ навыков по использованию групповых политик и средств удаленной установки
+ приложений.
+ Также, системные требования приложения предполагают использование приложения
+ исключительно на 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ПК"
+description "Персональный компьютер"
+literal "false"
+
+\end_inset
+
+ архитектуры 
+\emph on
+x86
+\emph default
+ и с установленной ОС
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "ОС"
+description "Операционная система"
+literal "false"
+
+\end_inset
+
+ семейства Microsoft Windows, что не позволяет использовать данный программный
+ продукт на ОС с открытым исходным кодом, таких как ОС семейства Linux.
+\end_layout
+
+\begin_layout Standard
+Наконец, в приложении присутствует множество различных дефектов, которые
+ могут влиять на удобство его использования.
+ Например, при прерывании сетевого соединения с сервером, предоставляющим
+ данные для клиентских экземпляров приложения, отсутствует возможность возобнови
+ть прохождение теста с последнего открытого вопроса - тест будет закрыт
+ для обучающегося.
+\end_layout
+
+\begin_layout Подраздел
+Обзор среды тестирования ЭМИРС
+\end_layout
+
+\begin_layout Standard
+В рамках множества образовательных курсов в НИУ МИЭТ также широко используется
+ система онлайн-тестирования ЭМИРС (бывш.
+ ОРИОКС).
+ Интерфейс данной системы представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ЭМИРС"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/emirs.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ЭМИРС"
+
+\end_inset
+
+Пример интерфейса среды ЭМИРС
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Данная среда позволяет проводить онлайн-тестирование студентов по определенным
+ курсам подготовки.
+ Как и в MyTest, поддерживаются сразу несколько видов тестов:
+\end_layout
+
+\begin_layout Enumerate
+Одиночный выбор;
+\end_layout
+
+\begin_layout Enumerate
+Множественный выбор;
+\end_layout
+
+\begin_layout Enumerate
+Установление порядка следования;
+\end_layout
+
+\begin_layout Enumerate
+Установление соответствия;
+\end_layout
+
+\begin_layout Enumerate
+Ручной ввод числа, ручной ввод текста.
+\end_layout
+
+\begin_layout Standard
+Количество вопросов в тесте можно изменять, как и максимальную длительность
+ прохождения теста.
+ Благодаря тому, что система представляет веб-интерфейс, тесты могут создаваться
+ с использованием широкого спектра веб-компонентов - форматированного текста,
+ таблиц, изображений и т.д.
+\end_layout
+
+\begin_layout Standard
+Также благодаря тому, что клиентская часть приложения также является веб-интерфе
+йсом, для проведения тестов не требуется установка на ПК обучающихся специальных
+ программных средств - достаточно встроенного в систему браузера.
+ Отсутствие привязки к программной платформе позволяет запускать тесты на
+ ПК с любой архитектурой и типом ОС.
+\end_layout
+
+\begin_layout Standard
+К недостаткам данной системы можно отнести:
+\end_layout
+
+\begin_layout Enumerate
+Необходимость согласования проведения тестирования со специальным отделом
+ (каб.
+ 4100);
+\end_layout
+
+\begin_layout Enumerate
+Сложность создания теста для преподавателя;
+\end_layout
+
+\begin_layout Enumerate
+Различные ошибки в реализации (такие как регистрозависимая проверка введенных
+ символов или отсутствие фильтрации пробелов).
+\end_layout
+
+\begin_layout Подраздел
+Модель нарушителя
+\end_layout
+
+\begin_layout Standard
+Таким образом, основные нарушители конфиденциальности информации при использован
+ии программных комплексов для обучения и тестирования студентов приведены
+ в таблице 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Модель нарушителя"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Модель нарушителя"
+
+\end_inset
+
+Модель нарушителя
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Нарушитель
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Модули
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Условия
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Студенты
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Учебные материалы
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Проведение тестирования
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Результаты тестов
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Во время проведения
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ тестирования или позже
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Права доступа пользователей
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+В любое время
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Преподаватели
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Учебные материалы
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+В любое время
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+конкурирующих
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+университетов
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Подраздел
+Основные уязвимости
+\end_layout
+
+\begin_layout Standard
+Используемые системы тестирования обучающихся по образовательным программам
+ в числе прочих недостатков, касающихся удобства их использования, также
+ имеют и ряд действующих или потенциальных уязвимостей.
+\end_layout
+
+\begin_layout Standard
+Рассмотрим более подробно такие уязвимости
+\end_layout
+
+\begin_layout Пункт
+Отсутствие аутентификации пользователей
+\end_layout
+
+\begin_layout Standard
+Если в используемом приложении отсутствует аутентификация обучающихся, то
+ при прохождении теста любой пользователь может указать любое имя и номер
+ группы (класса), что дает возможность прохождения тестов от чужого имени
+ или намеренного искажения результатов тестирования.
+\end_layout
+
+\begin_layout Standard
+Также, в случае использования слабых проверок паролей пользователей или
+ использования уязвимых библиотек, возможен обход существующего механизма
+ аутентификации, что позволяет, к примеру, авторизоваться в системе от имени
+ преподавателя и изменить содержание тестов или ведомости по своему усмотрению.
+\end_layout
+
+\begin_layout Пункт
+Отсутствие проверки вводимых данных
+\end_layout
+
+\begin_layout Standard
+Данная уязвимость возможна при использовании систем, работа с которыми производи
+тся через веб-интерфейс.
+\end_layout
+
+\begin_layout Standard
+В некоторых случаях, при использовании небезопасных решений при проектировании
+ системы, поля ввода после получения данных от клиента напрямую подставляются
+ в вычисляемые выражения.
+ Например, производится вычисление результата с помощью небезопасной функции
+ 
+\emph on
+eval
+\emph default
+ на языках PHP или JavaScript, что позволяет изменять логику работы приложения
+ с помощью внедрения специальных последовательностей управляющих символов
+ или символом экранирования текста.
+\end_layout
+
+\begin_layout Standard
+Также, некоторые приложения имеют дефекты, связанные с отсутствием проверок
+ на выход за пределы доступных им областей памяти, что позволяет использовать
+ на них уязвимости вида 
+\emph on
+переполнение буфера (buffer overflow)
+\emph default
+.
+ Уязвимости такого рода позволяют путем передачи сообщения определенной
+ длины, со специальными последовательностями в конце блока данных, обеспечивать
+ в момент записи значения в переменную перезапись управляющих блоков данных
+ в других функциях приложения или даже приложений, расположенных в соседних
+ блоках памяти.
+ Последующий запуск данных функций может приводить к исполнению переданного
+ кода вместо исходной программной функции, что может привести к любым последстви
+ям - от вмешательства в результаты теста, до запуска исполняемых файлов
+ на сервере.
+\end_layout
+
+\begin_layout Пункт
+Вычисление результатов на стороне клиента
+\end_layout
+
+\begin_layout Standard
+Данная уязвимость связана с архитектурными недостатками некоторых отдельных
+ систем проведения тестирования.
+ Так, с целью минимизации нагрузки на серверную часть приложения, связанную
+ с большим количеством запросов от клиентских ПК, вычисление результатов
+ тестирования на переносится с сервера на клиентскую часть приложения.
+\end_layout
+
+\begin_layout Standard
+Однако, вместе с уменьшением нагрузки на сервер возникает потенциальная
+ уязвимость, связанная с возможностью локального вмешательства в память
+ клиентского ПК, чтобы вместо действительного результата тестирования приложение
+м обрабатывался измененный - например, с заведомо правильными ответами.
+\end_layout
+
+\begin_layout Standard
+Иной способ - изменение кода, отвечающего за вычисление результата в клиентской
+ части приложения таким образом, чтобы вне зависимости от результатов тестирован
+ия на сервер возвращался нужный злоумышленнику результат.
+\end_layout
+
+\begin_layout Standard
+Таким образом, сервер получает от клиента оценку, не соответствующую реальности,
+ что сводит на нет всю работу программы.
+\end_layout
+
+\begin_layout Пункт
+Отсутствие шифрования соединения между клиентом и сервером
+\end_layout
+
+\begin_layout Standard
+Данная уязвимость связана с тем, что данные между клиентом и сервером передаются
+ по нешифрованному каналу связи.
+ Например, система ЭМИРС использует стандартный протокол HTTP
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HTTP"
+description "Протокол передачи гипертекста (англ. HyperText Transfer Protocol)"
+literal "false"
+
+\end_inset
+
+, а не более защищенный стандарт HTTPS
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+symbol "HTTPS"
+description "Безопасный протокол передачи гипертекста (англ. HyperText Transfer Protocol Secure)"
+literal "false"
+
+\end_inset
+
+ (рисунок
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:ЭМИРС, HTTP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/emirs_http.png
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:ЭМИРС, HTTP"
+
+\end_inset
+
+Небезопасное соединение с системой ЭМИРС
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Стандарт HTTPS позволяет устанавливать безопасное соединение между клиентом
+ и сервером.
+ Для этого используется проверка сертификата серверной стороны, после чего
+ генерируется пара ключей для конкретного клиента и сервера 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "diffi_hellman"
+literal "false"
+
+\end_inset
+
+.
+ С их помощью передаваемая между сторонами информация шифруется с помощью
+ одного из выбранных симметричных криптографических алгоритмов, что позволяет
+ решать следующие задачи:
+\end_layout
+
+\begin_layout Itemize
+Скрытие содержания передаваемых данных (
+\emph on
+но не факта передачи
+\emph default
+)
+\end_layout
+
+\begin_layout Itemize
+Защита от внедрения данных в канал передачи
+\end_layout
+
+\begin_layout Itemize
+Защита от повторной передачи передаваемых пакетов
+\end_layout
+
+\begin_layout Standard
+Таким образом, использование данной системы является потенциально небезопасным
+ не только при передаче данных во время тестирования, но при обычном использован
+ии - внедрение сторонних скриптов в содержимое веб-страницы позволяет в
+ некоторых случаях перехватывать личную информацию пользователя - например,
+ Cookie, которые можно использовать для проведения более сложных атак 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stollings"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Аналогичные результаты возможны и при использовании других протоколов с
+ отсутствием валидации сторон и шифрования.
+ Использование многими приложениями протоколов собственной разработки, разумеетс
+я, требует наличия определенных навыков по обратному инжинирингу со стороны
+ злоумышленника, однако при достаточной популярности приложения возможно
+ достаточно быстрое появление необходимых эксплоитов.
+\end_layout
+
+\begin_layout Подраздел
+Выводы по главе 2
+\end_layout
+
+\begin_layout Standard
+В данной главе был проведен подробный анализ используемых программных средств
+ в области автоматизации процесса обучения студентов.
+ Рассмотренные средства используются как для размещения учебных материалов,
+ так и проведения тестирования.
+\end_layout
+
+\begin_layout Standard
+Данные средства обладают следующими существенными недостатками и уязвимостями:
+\end_layout
+
+\begin_layout Itemize
+Привязка к определенной ОС (
+\emph on
+Microsoft Windows
+\emph default
+);
+\end_layout
+
+\begin_layout Itemize
+Закрытость исходного кода;
+\end_layout
+
+\begin_layout Itemize
+Отсутствие проверок вводимых данных и возможность внедрения стороннего кода;
+\end_layout
+
+\begin_layout Itemize
+Вычисление результатов теста на стороне клиента, а не сервера;
+\end_layout
+
+\begin_layout Itemize
+Отсутствие шифрования при передаче данных между клиентом и сервером.
+\end_layout
+
+\begin_layout Standard
+Также ни одно из рассматриваемых средств не предоставляет студентам возможности
+ интерактивного обучения конкретным алгоритмам, изучаемым в рамках курса.
+ Этот недостаток не позволяет использовать указанные средства в качестве
+ полноценного учебного комплекса.
+\end_layout
+
+\begin_layout Standard
+В совокупности, благодаря проведенному анализу изучаемых методов обеспечения
+ конфиденциальности информации, стал возможным следующий этап настоящей
+ работы – создание интерактивного программного комплекса для изучения данных
+ методов.
+ При его реализации необходимо учитывать уязвимости существующих приложений
+ и систем, широко используемых в данной области.
+\end_layout
+
+\end_body
+\end_document

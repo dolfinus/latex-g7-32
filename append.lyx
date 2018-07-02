@@ -1,0 +1,1413 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass lyx/layouts/g7-32_text
+\begin_preamble
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+% Стиль (по умолчанию будет 14pt)
+
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+\include{preamble.inc}
+
+% Полезные макросы листингов.
+\include{macros.inc}
+\end_preamble
+\use_default_options true
+\begin_modules
+minted
+local-minted
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "DejaVu Serif"
+\font_sans "default" "DejaVu Sans"
+\font_typewriter "default" "DejaVu Sans Mono"
+\font_math "auto" "default"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\pdf_title "Лабораторная работа №2"
+\pdf_author "Мартынов М.С."
+\pdf_subject "Исследование механизма электронной цифровой подписи по ГОСТ Р 34.10-2012"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
+\headheight 0cm
+\headsep 0cm
+\footskip 0cm
+\secnumdepth 4
+\tocdepth 4
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 1 0 6 -1
+\bullet 2 0 10 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Приложение
+А.
+ Инструкция администратора комплекса
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PicNotInChapter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Параграф
+Установка комплекса
+\end_layout
+
+\begin_layout Standard
+Для установки комплекса с размещением модулей в отдельных контейнерах использует
+ся система контейнеризации Docker совместно с утилитой развертывания docker-comp
+ose 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "docker-compose"
+literal "false"
+
+\end_inset
+
+ Инструкции по установке для основных ОС описаны в соответствующей документации,
+ размещенной на официальном сайте.
+\end_layout
+
+\begin_layout Standard
+Для разветрывания данного комплекса на ПК преподавателя используется следующий
+ файл конфигурации docker-compose.yml:
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "sources/docker-compose.yml"
+lstparams "language=Python,frame=lines,breaklines=true,style=mypython,basicstyle={\\small}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Листинг 1 - Конфигурация средства развертывания docker-compose
+\end_layout
+
+\begin_layout Standard
+Процесс сборки и запуска контейнеров производится с помощью выполнения следующей
+ команды:
+\end_layout
+
+\begin_layout Quote
+docker-compose up -d
+\end_layout
+
+\begin_layout Standard
+После чего доступ к программному комплексу можно получить, пройдя по ссылке:
+\end_layout
+
+\begin_layout Standard
+https://localhost:80
+\end_layout
+
+\begin_layout Параграф
+Авторизация пользователя
+\end_layout
+
+\begin_layout Standard
+Если пользователь не выполнил вход в приложение, он сразу же будет перенаправлен
+ на экран авторизации.
+ Его интерфейс представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Экран входа примечание"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/login.png
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Экран входа примечание"
+
+\end_inset
+
+Экран входа в систему
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Стандартные логин и пароль для преподавателя задаются в конфигурации серверной
+ части комплекса, и в данном случае имеют следующие значения:
+\end_layout
+
+\begin_layout Itemize
+Логин - admin
+\end_layout
+
+\begin_layout Itemize
+Пароль - q123
+\end_layout
+
+\begin_layout Параграф
+Главный экран
+\end_layout
+
+\begin_layout Standard
+После входа пользователя в программный комплекс будет показан основной экран
+ приложения (рисунок 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Основной экран, админ"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/main_admin.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Основной экран, админ"
+
+\end_inset
+
+Экран входа в систему
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Данный экран предоставляет возможность навигации по различным модулям программно
+го комплекса с помощью соответствующих пунктов меню.
+ После выбора соответствующего пункта меню происходит перенаправление на
+ страницу модуля.
+\end_layout
+
+\begin_layout Параграф
+Управление пользователями
+\end_layout
+
+\begin_layout Standard
+Преподаватель обладает правом создавать и изменять пользователей, которые
+ имеют доступ к программному комплексу.
+ Управление реализовано с помощью отдельного модуля Пользователи.
+\end_layout
+
+\begin_layout Standard
+Интерфейс модуля представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Управление пользователями-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/users_create.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Управление пользователями-1"
+
+\end_inset
+
+Создание нового пользователя
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+После нажатия кнопки Добавить пользователя открывается окно создания нового
+ пользователя, где преподаватель может ввести логин создаваемого пользователя,
+ его ФИО, а также установить пароль и уровень прав доступа.
+ 
+\end_layout
+
+\begin_layout Standard
+Интерфейс аналогичен тому, что отображается при редактировании сущестсвующего
+ пользователя (рисунок 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Управление пользователями"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/users.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Управление пользователями"
+
+\end_inset
+
+Редактирование существующего пользователя
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При создании пользователя обязательными полями являются логин и пароль,
+ так как без указанных данных невозможна авторизация пользователя в системе.
+\end_layout
+
+\begin_layout Standard
+При редактировании же производится сохранение только для тех данных, которые
+ были изменены - например, если пароль пользователя не был изменен при редактиро
+вании, то он останется прежним.
+\end_layout
+
+\begin_layout Standard
+Также преподаватель имеет возможность удалить существующего пользователя
+ с помощью соответствующей кнопки внизу экрана.
+ Однако пользователь не может удалить себя, так как в таком случае возможна
+ ситуация, когда в системе будет удален последний пользователь, и вход в
+ комплекс станет невозможным.
+\end_layout
+
+\begin_layout Параграф
+Управление материалами
+\end_layout
+
+\begin_layout Standard
+Модуль учебных материалов представляет собой библиотеку с требуемыми в процессе
+ обучения текстами лекций, презентаций, научных статей и других материалов.
+ 
+\end_layout
+
+\begin_layout Standard
+Внешний вид библиотеки представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Учебные материалы, новый"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/articles_create.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Учебные материалы, новый"
+
+\end_inset
+
+Добавление нового материала
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+С помощью кнопки Добавить материал преподаватель может создавать новые материалы.
+\end_layout
+
+\begin_layout Standard
+Страница создания нового материала практически совпадает со страницей редактиров
+ания существующего.
+ Её внешний вид представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Учебные материалы"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/articles_admin.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Учебные материалы"
+
+\end_inset
+
+Внешний вид редактора материалов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Каждый материал представляет собой документ с расширяемым содержимым в формате
+ HTML.
+ Преподавателю предоставляется интерактивный редактор, который позволяет
+ вносить изменения в текст материалов, и использовать следующие возможности
+ оформления:
+\end_layout
+
+\begin_layout Itemize
+Заголовки;
+\end_layout
+
+\begin_layout Itemize
+Полужирное и курсивное начертание;
+\end_layout
+
+\begin_layout Itemize
+Подчеркнутый и зачеркнутый текст;
+\end_layout
+
+\begin_layout Itemize
+Подстрочный и надстрочный текст;
+\end_layout
+
+\begin_layout Itemize
+Нумерованные списки;
+\end_layout
+
+\begin_layout Itemize
+Ненумерованные списки;
+\end_layout
+
+\begin_layout Itemize
+Выравнивание (по левому краю, по центру, по правому краю, по ширине);
+\end_layout
+
+\begin_layout Itemize
+Блок цитат;
+\end_layout
+
+\begin_layout Itemize
+Исходный код с подсветкой синтаксиса;
+\end_layout
+
+\begin_layout Itemize
+Таблицы изменяемых размеров;
+\end_layout
+
+\begin_layout Itemize
+Ссылки на материалы в Интернете;
+\end_layout
+
+\begin_layout Itemize
+Изображения;
+\end_layout
+
+\begin_layout Itemize
+IFrame с содержимым сторонних сайтов (в т.ч.
+ и видео).
+\end_layout
+
+\begin_layout Standard
+Также материалы можно структурировать, задавая для них название группы (категори
+и), в которой они будут отображаться в левой части экрана.
+ Уже существующие материалы можно перемещать в другие категории путем изменения
+ названия категории у конкретного материала.
+\end_layout
+
+\begin_layout Standard
+Интерфейс студента отличается от соответствующего интерфейса преподавателя
+ - присутствует только возможность просматривать существующие материалы.
+ Внешний вид данного интерфейса представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Учебные материалы, студент"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/articles_student.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Учебные материалы, студент"
+
+\end_inset
+
+Интерфейс просмотра материалов
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Также особенностью программного комплекса является то, что для студента
+ ограничены также и возможности по копированию материалов.
+ Так, заблокированы стандартные возможности выделения и копирования текста
+ с помощью клавиатуры, мыши и сенсорных экранов, а также заблокировано контекстн
+ое меню.
+\end_layout
+
+\begin_layout Standard
+В качестве дополнительной меры, в браузерах семейства 
+\emph on
+Internet Explorer 
+\emph default
+также контролируется функция снятия снимков экрана, что позволяет предотвратить
+ копирование материалов путем снятия копии в виде растрового изображения.
+\end_layout
+
+\begin_layout Параграф
+Алгоритмы шифрования и ЦП
+\end_layout
+
+\begin_layout Standard
+В программном комплексе присутствуют интерактивная библиотека различных
+ алгоритмов шифрования и ЦП.
+ Ее интерфейс, представленный на рисунках 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Алгоритмы шифрования"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ и 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Алгоритмы ЦП"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, одинаков для преподавателя и студента:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/ciphers.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Алгоритмы шифрования"
+
+\end_inset
+
+Внешний вид библиотеки шифров
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/eds.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Алгоритмы ЦП"
+
+\end_inset
+
+Интерфейс библиотеки алгоритмов ЦП
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Путем выбора конкретного алгоритма и ввода необходимых данных в предусмотренные
+ для поля, студент может выполнять операции шифрования, расшифрования, генерации
+ и проверки цифровой подписи над текстом или числовыми данными.
+ Представленные алгоритмы охватывают различные периоды истории использования
+ криптографических средств, и могут использоваться в качестве интерактивного
+ стенда для демонстрации алгоритмов.
+\end_layout
+
+\begin_layout Параграф
+Частотный анализ
+\end_layout
+
+\begin_layout Standard
+Данный модуль представляет собой интерактивную диаграмму частот встречаемости
+ символов в тексте.
+ Как и в случае с библиотекой алгоритмов, данный модуль доступен равно как
+ для преподавателей, так и для студентов.
+\end_layout
+
+\begin_layout Standard
+Интерфейс модуля представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Модуль частотного анализа"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/instruments.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Модуль частотного анализа"
+
+\end_inset
+
+Интерфейс инструментов частотного анализа
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+При вводе текста в предусмотренное поле производится расчет частоты встречаемост
+и символов, биграмм или триграмм в нем.
+ Диаграмма является интерактивной, и при вводе происходит ее автоматическая
+ перерисовка.
+\end_layout
+
+\begin_layout Standard
+Кнопка 
+\emph on
+Скачать
+\emph default
+ позволяет получить таблицу с результатами анализа в формате 
+\emph on
+.xlsx, 
+\emph default
+которую можно использовать для дальнейшего анализа шифртекста.
+\end_layout
+
+\begin_layout Параграф
+Управление тестами
+\end_layout
+
+\begin_layout Standard
+Программный комлекс предоставляет широкие возможности для проведения тестировани
+я студентов по пройденным материалам.
+ Интерфейс создания нового теста представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Создание теста"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_create.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Создание теста"
+
+\end_inset
+
+Добавление нового теста
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Интерфейс редактирования существующего теста представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Управление тестами"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_edit.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Управление тестами"
+
+\end_inset
+
+Редактирование теста
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В качестве основных параметров тестов можно устанавливать:
+\end_layout
+
+\begin_layout Itemize
+Длительность теста (в минутах);
+\end_layout
+
+\begin_layout Itemize
+Время открытия теста;
+\end_layout
+
+\begin_layout Itemize
+Время закрытия теста.
+\end_layout
+
+\begin_layout Standard
+Количество вопросов не ограничено, преподаватель может устанавливать его
+ по своему усмотрению.
+ Студенты не имеют доступа к данному модулю.
+\end_layout
+
+\begin_layout Standard
+Среди типов вопросов можно использовать следующие:
+\end_layout
+
+\begin_layout Itemize
+Вопросы с одним вариантом ответа;
+\end_layout
+
+\begin_layout Itemize
+Вопросы с несколькими вариантами ответа.
+\end_layout
+
+\begin_layout Standard
+Интерфейс редактирования содержания вопросов аналогичен тому, что используется
+ при редактировании учебных материалов, и позволяет использовать расширения,
+ такие как изображения или ссылки.
+ Также, аналогично учебным материалам, преподавателю может структурировать
+ тесты, указывая для них категорию, к которой относится данный тест (например,
+ дисциплина).
+\end_layout
+
+\begin_layout Параграф
+Проведение тестирования
+\end_layout
+
+\begin_layout Standard
+При наступлении даты проведения теста (между датой открытия и датой закрытия),
+ студент может выбрать тест для прохождения в модуле проведения тестирования.
+\end_layout
+
+\begin_layout Standard
+Внешний вид доступного для прохождения теста представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Прохождение теста"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_run.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Прохождение теста"
+
+\end_inset
+
+Доступный для прохождения тест
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тест доступен для прохождения, если не был пройден студентом или завершен
+ по таймауту после начала выполнения.
+ Пока тест доступен, пользователь может приступить к его прохождению или
+ вернуться к последнему открытому вопросу, если во время прохождения возникали
+ проблемы с доступом к комплексу.
+\end_layout
+
+\begin_layout Standard
+Внешний вид отображаемых студенту вопросов приведен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Вопрос теста"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_run_item.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Вопрос теста"
+
+\end_inset
+
+Внешний вид вопроса при прохождении теста
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Отображение каждого вопроса сопровождается выводом времени с начала прохождения
+ теста, а также временем до его завершения.
+ Вопросы можно пропускать или досрочно завершать прохождение, воспользовавшись
+ соответствующими кнопками.
+\end_layout
+
+\begin_layout Standard
+После того, как тест передстает быть доступным для прохождения или становится
+ выполненным, происходит автоматический переход к результатам.
+\end_layout
+
+\begin_layout Параграф
+Ведомость преподавателя
+\end_layout
+
+\begin_layout Standard
+Для всех существующих тестов преподаватель имеет возможность просмотра ведомости
+ с результатами прохождения.
+ Внешний вид интерфейса представлен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ведомость"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_results.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ведомость"
+
+\end_inset
+
+Ведомость преподавателя
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Результаты представлены в виде подробной таблицей, в которой указано:
+\end_layout
+
+\begin_layout Itemize
+Время начала прохождения теста;
+\end_layout
+
+\begin_layout Itemize
+Время окончания прохождения теста;
+\end_layout
+
+\begin_layout Itemize
+Был ли завершен тест или время прохождения истекло;
+\end_layout
+
+\begin_layout Itemize
+Правильность ответа на каждый из вопросов;
+\end_layout
+
+\begin_layout Itemize
+Результаты в виде процента от общего числа вопросов и в виде балла.
+\end_layout
+
+\begin_layout Standard
+Также ведомость является интерактивной, и поддерживает функции поиска, разделени
+я выводимых результатов на страницы, а также позволяет скачивать результаты
+ в виде 
+\emph on
+.xslx
+\emph default
+ файла.
+\end_layout
+
+\begin_layout Параграф
+Просмотр результатов
+\end_layout
+
+\begin_layout Standard
+Кроме того, студент также имеет возможность просмотра собственных результатов
+ в целях обучения.
+ Для данноей цели служит модуль просмотра результатов теста, интерфейс которого
+ приведен на рисунке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Результаты студента"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename png/test_result.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Результаты студента"
+
+\end_inset
+
+Просмотр результатов теста
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В модуле отображаются тесты, которые были пройдены пользователем или время
+ их прохождения истекло.
+ Студент может получить информацию о времени начала и окончания прохождения,
+ были ли тест пройден или истек, а также узнать полученный балл за его прохожден
+ие.
+\end_layout
+
+\begin_layout Standard
+После того, как период доступности теста для прохождения завершается, студент
+ может получить более подробную информацию о прохождении теста, в том числе
+ собственные ответы на вопросы, а также отметку, какие на какие вопросы
+ были даны неверные ответы.
+ Это позволяет студентам определять, какие ошибки привели к понижению балла
+ за прохождение теста, но также не позволяет получать правильные ответы
+ на вопросы теста до окончания его проведения.
+\end_layout
+
+\end_body
+\end_document
