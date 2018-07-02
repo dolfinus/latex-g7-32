@@ -3,7 +3,7 @@
 # Inset layouts definition
 #
 # More detailled format description is available in the customization manual
-# FIXME: create the contents in the manual and put the link here.  
+# FIXME: create the contents in the manual and put the link here.
 #
 #InsetLayout <string identifier used by LyX>
 #	LabelString           used for the inset decoration (either the inset button
@@ -37,7 +37,7 @@
 #	MultiPar              Indicates that multiple paragraphs are allowed within the inset
 #                         or not. Defaults to false. Sets CustomPars, as well, to the same
 #                         value, and sets ForcePlain to the opposite value. If you want
-#                         those to be different, then, you must set them after you set 
+#                         those to be different, then, you must set them after you set
 #                         MultiPar.
 # CustomPars            Whether to allow the use of the Paragraph Settings dialog. Default is
 #                         false.

@@ -1,0 +1,106 @@
+\sloppy
+
+% Настройки стиля ГОСТ 7-32
+% Для начала определяем, хотим мы или нет, чтобы рисунки и таблицы нумеровались в пределах раздела, или нам нужна сквозная нумерация.
+%\EqInChapter % формулы будут нумероваться в пределах раздела
+%\TableInChapter % таблицы будут нумероваться в пределах раздела
+%\PicInChapter % рисунки будут нумероваться в пределах раздела
+
+% Добавляем гипертекстовое оглавление в PDF
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    anchorcolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+
+% Изменение начертания шрифта --- после чего выглядит таймсоподобно.
+% apt-get install scalable-cyrfonts-tex
+
+\IfFileExists{cyrtimes.sty}
+    {
+        \usepackage{cyrtimespatched}
+    }
+    {
+        % А если Times нету, то будет CM...
+    }
+
+
+\usepackage{G732}
+\usepackage{graphicx}   % Пакет для включения рисунков
+
+% С такими оно полями оно работает по-умолчанию:
+% \RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+% Если вас тошнит от поля в 10мм --- увеличивайте до 20-ти, ну и про переплёт не забывайте:
+%\geometry{right=20mm}
+%\geometry{left=30mm}
+
+\usepackage{indentfirst}
+% Пакет Tikz
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shadows}
+
+% Произвольная нумерация списков.
+\usepackage{enumerate}
+
+% ячейки в несколько строчек
+\usepackage{multirow}
+
+% itemize внутри tabular
+\usepackage{paralist,array}
+
+% Выравнивание числовых колонок
+\usepackage{dcolumn}
+
+% Центрирование подписей к плавающим окружениям
+\usepackage[justification=centering]{caption}
+
+\usepackage{listings}
+\usepackage{pythonhighlight}
+\usepackage{jshighlight}
+% Farben definieren
+\usepackage{xcolor}
+\definecolor{codeGray}{RGB}{240,243,243}
+\definecolor{codeBlack}{RGB}{0,0,0}
+\definecolor{codeRed}{RGB}{221,0,0}
+\definecolor{codeDarkRed}{RGB}{204,51,0}
+\definecolor{codeDarkBlue}{RGB}{0,102,153}
+\definecolor{codeBlue}{rgb}{0,153,255}
+\definecolor{codeYellow}{RGB}{255,128,0}
+\definecolor{codeGreen}{RGB}{0,51,51}
+
+% … und zuweisen
+\lstset{%
+    language=PHP,%
+    %
+    % Farben, diktengleiche Schrift
+    backgroundcolor={\color{codeGray}},% 
+    basicstyle={\small\ttfamily\color{codeGreen}},% 
+    commentstyle={\color{codeBlue}},%
+    keywordstyle={\color{codeDarkRed}},%
+    morekeywords={new},
+    stringstyle={\color{codeRed}},%
+    identifierstyle={\color{codeDarkBlue}},%
+    %
+    % Zeilenumbrüche aktivieren, Leerzeichen nicht hervorheben
+    breaklines=true,%
+    showstringspaces=false,%
+    % 
+    % Listing-Caption unterhalb (bottom)
+    captionpos=b,%
+    % 
+    % Listing einrahmen
+    frame=single,%
+    rulecolor={\color{codeBlack}},%
+    % 
+    % winzige Zeilennummern links
+    numbers=left,%
+    numberstyle={\tiny\color{codeBlack}}%
+}
+\g@addto@macro\@floatboxreset\centering
+

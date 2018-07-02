@@ -9,6 +9,21 @@
 
 
 Format 11
+Style "Альбомная ориентация"
+	Category     FrontMatter
+    LatexName    landbegin
+    LatexType    Command
+	KeepEmpty true
+End
+
+
+Style "/Альбомная ориентация"
+	Category     FrontMatter
+    LatexName    landend
+    LatexType    Command
+	KeepEmpty true
+End
+
 Style Abstract
 	Margin                Static
 	LatexType             Environment
@@ -35,9 +50,8 @@ Style Abstract
 	EndFont
 End
 
-
 Style Bibliography
-	Margin                First_Dynamic
+	Margin                Static
 	LatexType             Bib_Environment
 	LatexName             thebibliography
 	Category              BackMatter

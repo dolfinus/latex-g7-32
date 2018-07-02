@@ -1,15 +1,3 @@
-﻿# GOST 7.32
-# Author : Inflianskas Roman <infroma@gmail.com>
-
-# Standard textclass definition file. Taken from initial LyX source code
-# Author : Matthias Ettrich <ettrich@informatik.uni-tuebingen.de>
-# Transposed by Pascal André <andre@via.ecp.fr>
-# Heavily modifed and enhanced by several developers.
-
-# This include files contains all numbered sectionning-related
-# commands that are useful for article-like document classes, but not
-# for letters.
-
 Format 11
 
 Style "Раздел"
@@ -96,7 +84,7 @@ Style "Приложение"
     Margin                Dynamic
     LabelType             Static
     LabelCounter          appendix
-    TocLevel              1
+    TocLevel              0
     LatexType             Command
     LatexName             appendix
     NeedProtect           1
@@ -106,9 +94,9 @@ Style "Приложение"
     TopSep                1.3
     BottomSep             0.7
     ParSep                0.7
-    Align                 Block
-    AlignPossible         Block, Left
-    OptionalArgs          2
+    Align                 Right
+    AlignPossible         Right
+    OptionalArgs          1
     Font
       Series              Bold
       Size                Larger

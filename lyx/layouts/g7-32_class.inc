@@ -1,12 +1,3 @@
-# Standard textclass definition file. Taken from initial LyX source code
-# Author : Matthias Ettrich <ettrich@informatik.uni-tuebingen.de>
-# Transposed by Pascal André <andre@via.ecp.fr>
-# Heavily modifed and enhanced by several developers.
-
-# This is a base layout which is designed to be included from other
-# ``standard'' layouts, like article and friends.
-
-
 Format 11
 Columns                 1
 Sides                   1

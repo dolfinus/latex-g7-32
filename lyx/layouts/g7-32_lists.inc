@@ -78,7 +78,7 @@ Style Description
 	ParSkip               0.4
 	ItemSep               0.2
 	TopSep                0.7
-	BottomSep             0.7
+	BottomSep             0.5
 	ParSep                0.3
 	ParbreakIsNewline     0
 	#PassThru              1
@@ -104,12 +104,12 @@ End
 Style List
 	Category              List
 	Margin                Manual
-	LatexType             Environment
+	LatexType             List_Environment
 	LatexName             lyxlist
 	NextNoindent          0
 	LabelSep              xxx
 	ParSkip               0.4
-	TopSep                0.7
+	TopSep                0.5
 	BottomSep             0.7
 	ParSep                0.5
 	ParbreakIsNewline     0
@@ -136,7 +136,7 @@ Style "Сокращения"
 	Category              List
 	Margin                First_Dynamic
 	LatexType             List_Environment
-	LatexName             abbreviation
+	LatexName             description
 	NextNoIndent          0
 	LeftMargin            MM
 	LabelSep              xxx

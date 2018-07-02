@@ -10,32 +10,31 @@
 
 
 Format 11
-
 Style "Исполнители"
     Category              "Структурный элемент"
-    Margin                Static
-    TocLevel              1
+    Margin                First_Dynamic
+    TocLevel              0
     LabelType             Centered_Top_Environment
     LabelString           "ИСПОЛНИТЕЛИ"
     LabelCounter          ""
     LatexType             Command
     LatexName             Executors
-    Newline               0
+    Newline               1
     OptionalArgs          1
     KeepEmpty             1
     NeedProtect           1
-    NextNoIndent          1
+    NextNoIndent          0
     LabelSep              xxx
     #LeftMargin            MMM
     #RightMargin           MMM
-    #ParIndent             MM
+    ParIndent             MM
     ItemSep               0
     TopSep                1.5
     BottomSep             0
     ParSep                0
 
     Align                 Block
-    LabelBottomSep        0.0
+    #LabelBottomSep        0.0
     Font
       Size                Normal
     EndFont
@@ -57,9 +56,15 @@ Style "Определения"
     LatexName       Defines
 End
 
+Style "Ход работы"
+    CopyStyle       "Исполнители"
+    LabelString     "ХОД РАБОТЫ"
+    LatexName       WorkBody
+End
+
 Style "Обозначения и сокращения"
     CopyStyle       "Исполнители"
-    LabelString     "ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ"
+    LabelString     "СПИСОК УСЛОВНЫХ СОКРАЩЕНИЙ"
     LatexName       Abbreviations
 End
 
@@ -80,4 +85,16 @@ Style "Заключение"
     CopyStyle       "Исполнители"
     LabelString     "ЗАКЛЮЧЕНИЕ"
     LatexName       Conclusion
+End
+
+Style "Контрольные вопросы"
+    CopyStyle       "Исполнители"
+    LabelString     "КОНТРОЛЬНЫЕ ВОПРОСЫ"
+    LatexName       Questions
+End
+Style "Приложение"
+    CopyStyle       "Исполнители"
+    LabelString     "ПРИЛОЖЕНИЕ"
+    LabelCounter    appendix
+    LatexName       Addition
 End

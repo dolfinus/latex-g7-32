@@ -1,6 +1,6 @@
 #% Do not delete the line below; configure depends on this
-# \LoadClass{G7-32}
-# \DeclareLaTeXClass[G7-32]{gost7.32}
+# \LoadClass{G732}
+# \DeclareLaTeXClass[G732]{gost7.32}
 # eskd textclass definition file. 
 
 Format 11
